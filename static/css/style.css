@@ -1,3 +1,7 @@
 body {
     background-color: #fce4ec;
    }
+
+   .form-border {
+       border: solid black 1px;
+   }

@@ -4,6 +4,7 @@
  
     <div class="row">
         {% for recipe in recipes %}
+
         <div class="col m4">
             <div class="card">
                 <div class="row">
@@ -33,20 +34,9 @@
         </div>
         {% endfor %}
     </div>
-    
-
-
-    {% for recipe in recipes %}
-        {{ recipe.name }}<br>
-        {{ recipe.time_required }}<br>
-        {{ recipe.preheat_oven }}<br>
-        {{ recipe.ingredients }}<br>
-        {{ recipe.step_one }}<br>
-        {{ recipe.step_two }}<br>
-        {{ recipe.step_three }}<br>
-        {{ recipe.allergy_info }}<br>
-        {{ recipe.required_utensils }}<br>
-        {{ recipe.description }}<br>
-    {% endfor %}
-
+    <div class="row">
+        <div class="col s12">
+            <a href="{{ url_for('add_recipe') }}" class="waves-effect waves-light btn">Add New Recipe!</a>
+        </div>
+    </div>
 {% endblock %}
