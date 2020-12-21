@@ -28,7 +28,7 @@
                     <p>{{ recipe.description }}</p>
                 </div>
                 <div class="card-action center">
-                    <a href="#">Full Recipe!</a>
+                    <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
                 </div>
             </div>
         </div>

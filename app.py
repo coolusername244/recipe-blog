@@ -24,8 +24,17 @@ def index():
 
 @app.route("/recipes")
 def recipes():
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/full_recipe/<recipe_id>")
+def full_recipe(recipe_id):
+    recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    full_recipe = list(mongo.db.recipes.find(recipe_id))
+    return render_template(
+        "full_recipe.html", recipe=recipe_id, full_recipe=full_recipe
+        )
 
 
 @app.route("/add-recipe", methods=["GET", "POST"])
@@ -59,6 +68,7 @@ def add_recipe():
         flash("Recipe Successfully Added!")
         return redirect(url_for("recipes"))
     return render_template("add_recipe.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

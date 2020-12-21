@@ -7,6 +7,17 @@
                         Write your new recipe here!
                     </h4>
                 </div>
+                <!-- category -->
+                <div class="row">
+                    <div class="input-field col s2 center">
+                        <strong class="">Category:</strong>
+                    </div>
+                    <div class="div col s10">
+                        <input id="category" name="category" maxlength="50" 
+                            type="text" class="validate" required>
+                        <label for="category">Main, Side, Dessert...</label>
+                    </div>
+                </div>
                 <!-- dish name -->
                 <div class="row">
                     <div class="input-field col s2 center">
@@ -36,7 +47,7 @@
                     </div>
                     <div class="div col s10">
                         <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
-                            type="number" class="validate" required>
+                            type="number" class="validate">
                         <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
                             <p>
                                 <label>
@@ -53,8 +64,7 @@
                         <strong class="">Ingredients:</strong>
                     </div>
                     <div class="div col s10">
-                        <textarea id="ingredients" name="ingredients" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate required"></textarea>
+                        <textarea id="ingredients" name="ingredients" minlength="5" class="materialize-textarea validate required"></textarea>
                         <label for="ingredients">Eggs, Flour, Milk...</label>
                     </div>
                 </div>
@@ -65,7 +75,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="allergy_info" name="allergy_info" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate required"></textarea>
+                             class="materialize-textarea validate required"></textarea>
                         <label for="allergy_info">Vegan, Lactose Free, Gluten Free...</label>
                     </div>
                 </div>
@@ -75,9 +85,9 @@
                         <strong class="">Description:</strong>
                     </div>
                     <div class="div col s10">
-                        <textarea id="allergy_info" name="allergy_info" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate required"></textarea>
-                        <label for="allergy_info"><em>"A perfect family dinner"</em></label>
+                        <textarea id="description" name="description" minlength="5" 
+                             class="materialize-textarea validate required"></textarea>
+                        <label for="description"><em>"A perfect family dinner"</em></label>
                     </div>
                 </div>
                 <!-- steps -->
@@ -91,7 +101,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_one" name="step_one" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate required"></textarea>
+                             class="materialize-textarea validate required"></textarea>
                         <label for="step_one"></label>
                     </div>
                 </div>                
@@ -102,7 +112,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_two" name="step_two" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate required"></textarea>
+                             class="materialize-textarea validate required"></textarea>
                         <label for="step_two"></label>
                     </div>
                 </div>                
@@ -113,7 +123,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_three" name="step_three" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate required"></textarea>
+                             class="materialize-textarea validate required"></textarea>
                         <label for="step_three"></label>
                     </div>
                 </div>                
@@ -124,7 +134,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_four" name="step_four" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_four"></label>
                     </div>
                 </div>                
@@ -135,7 +145,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_five" name="step_five" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_five"></label>
                     </div>
                 </div>                
@@ -146,7 +156,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_six" name="step_six" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_six"></label>
                     </div>
                 </div>                
@@ -157,7 +167,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_seven" name="step_seven" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_seven"></label>
                     </div>
                 </div>                
@@ -168,7 +178,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_eight" name="step_eight" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_eight"></label>
                     </div>
                 </div>                
@@ -179,7 +189,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_nine" name="step_nine" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_nine"></label>
                     </div>
                 </div>                
@@ -190,7 +200,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_ten" name="step_ten" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_ten"></label>
                     </div>
                 </div>                
@@ -201,7 +211,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_eleven" name="step_eleven" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_eleven"></label>
                     </div>
                 </div>                
@@ -212,7 +222,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_twelve" name="step_twelve" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_twelve"></label>
                     </div>
                 </div>                
@@ -223,7 +233,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_thirteen" name="step_thirteen" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_thirteen"></label>
                     </div>
                 </div>                
@@ -234,7 +244,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_fourteen" name="step_fourteen" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_fourteen"></label>
                     </div>
                 </div>                
@@ -245,7 +255,7 @@
                     </div>
                     <div class="div col s10">
                         <textarea id="step_fifteen" name="step_fifteen" minlength="5" 
-                            maxlength="200" class="materialize-textarea validate"></textarea>
+                             class="materialize-textarea validate"></textarea>
                         <label for="step_fifteen"></label>
                     </div>
                 </div>
