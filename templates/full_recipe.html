@@ -2,7 +2,15 @@
 {% block content %}
 
     {% for recipe in full_recipe %}
-        <h3>{{ recipe.name }}</h3>
+        {{ recipe.category_name }}<br>
+        {{ recipe.name }}<br>
+        {{ recipe.time_required }}<br>
+        {{ recipe.preheat_oven }}<br>
+        {{ recipe.ingredients }}<br>
+        {{ recipe.allergy_info }}<br>
+        {{ recipe.description }}<br>
+        {{ recipe.step_1 }}<br>
+
     {% endfor %}
 
 {% endblock %}

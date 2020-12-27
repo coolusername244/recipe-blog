@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row card-panel pink lighten-5">
-            <form class="col offset-s1 s10 grey lighten-5 form-border" method="POST" action="{{ url_for('add_recipe') }}">
+            <form class="col offset-s1 s10 grey lighten-5 form-border form" method="POST" action="{{ url_for('add_recipe') }}">
                 <div class="center">
                     <h4>
                         Write your new recipe here!
@@ -93,173 +93,73 @@
                         <label for="description"><em>"A perfect family dinner"</em></label>
                     </div>
                 </div>
-                <!-- steps -->
-                <div class="div col s12 center">
-                    <h5>Please write instructions here, 3 steps are required for submission</h5>
-                </div>
-                <!-- step one -->
+                <div class="steps">
+                    <!-- steps -->
+                    <div class="div col s12 center">
+                        <h5>Please write instructions here, 3 steps are required for submission</h5>
+                    </div>
+                    <!-- step 1 -->
+                    <div class="row">
+                        <div class="input-field col s2 center">
+                            <strong class="">Step 1:</strong>
+                        </div>
+                        <div class="div col s10">
+                            <textarea id="step_1" value="1" name="step_1" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                            <label for="step_1"></label>
+                        </div>
+                    </div>                
+                    <!-- step 2 -->
+                    <div class="row">
+                        <div class="input-field col s2 center">
+                            <strong class="">Step 2:</strong>
+                        </div>
+                        <div class="div col s10">
+                            <input id="step_2" value="2" name="step_2" minlength="5" 
+                                class="materialize-textarea validate required">
+                            <label for="step_2"></label>
+                        </div>
+                    </div>                
+                    <!-- step 3 -->
+                    <div class="row step">
+                        <div class="input-field col s2 center">
+                            <strong class="">Step 3:</strong>
+                        </div>
+                        <div class="div col s10">
+                            <textarea id="step_3" value="3" name="step_3" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                            <label for="step_3"></label>
+                        </div>
+                    </div>      
+                    <!-- step 4 -->
+                    <div class="row step">
+                        <div class="input-field col s2 center">
+                            <strong class="">Step 4:</strong>
+                        </div>
+                        <div class="div col s10">
+                            <textarea id="step_4" value="4" name="step_4" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                            <label for="step_4"></label>
+                        </div>
+                    </div>  
+                    <!-- step 5 -->
+                    <div class="row step">
+                        <div class="input-field col s2 center">
+                            <strong class="">Step 5:</strong>
+                        </div>
+                        <div class="div col s10">
+                            <textarea id="step_5" value="5" name="step_5" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                            <label for="step_5"></label>
+                        </div>
+                    </div>
+                </div>          
+                <!-- add step -->
                 <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 1:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_one" name="step_one" minlength="5" 
-                             class="materialize-textarea validate required"></textarea>
-                        <label for="step_one"></label>
-                    </div>
-                </div>                
-                <!-- step two -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 2:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_two" name="step_two" minlength="5" 
-                             class="materialize-textarea validate required"></textarea>
-                        <label for="step_two"></label>
-                    </div>
-                </div>                
-                <!-- step three -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 3:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_three" name="step_three" minlength="5" 
-                             class="materialize-textarea validate required"></textarea>
-                        <label for="step_three"></label>
-                    </div>
-                </div>                
-                <!-- step four -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 4:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_four" name="step_four" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_four"></label>
-                    </div>
-                </div>                
-                <!-- step five -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 5:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_five" name="step_five" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_five"></label>
-                    </div>
-                </div>                
-                <!-- step six -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 6:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_six" name="step_six" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_six"></label>
-                    </div>
-                </div>                
-                <!-- step seven -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 7:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_seven" name="step_seven" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_seven"></label>
-                    </div>
-                </div>                
-                <!-- step eight -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 8:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_eight" name="step_eight" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_eight"></label>
-                    </div>
-                </div>                
-                <!-- step nine -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 9:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_nine" name="step_nine" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_nine"></label>
-                    </div>
-                </div>                
-                <!-- step ten -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 10:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_ten" name="step_ten" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_ten"></label>
-                    </div>
-                </div>                
-                <!-- step 11 haha -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 11:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_eleven" name="step_eleven" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_eleven"></label>
-                    </div>
-                </div>                
-                <!-- step 12 -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 12:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_twelve" name="step_twelve" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_twelve"></label>
-                    </div>
-                </div>                
-                <!-- step 13 -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 13:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_thirteen" name="step_thirteen" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_thirteen"></label>
-                    </div>
-                </div>                
-                <!-- step 14 -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 14:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_fourteen" name="step_fourteen" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_fourteen"></label>
-                    </div>
-                </div>                
-                <!-- step 15 -->
-                <div class="row">
-                    <div class="input-field col s2 center">
-                        <strong class="">Step 15:</strong>
-                    </div>
-                    <div class="div col s10">
-                        <textarea id="step_fifteen" name="step_fifteen" minlength="5" 
-                             class="materialize-textarea validate"></textarea>
-                        <label for="step_fifteen"></label>
+                    <div class="col s12 center-align">
+                        <button type="button" id="add_new" class="btn pink lighten-4 black-text text-shadow">
+                            Add New Step <i class="fas fa-plus-square right"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- comments -->
