@@ -3,7 +3,7 @@
   $(document).ready(function(){
     $('.sidenav').sidenav({edge: "top"});
     $('select').formSelect();
-    $('#add_new').on("click", function(){
+    $('#add_new').on('click touchstart', function() {
         i++;
         let html = `<div class="row step">
                         <div class="input-field col s2 center">
