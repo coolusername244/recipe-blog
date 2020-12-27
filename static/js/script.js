@@ -3,7 +3,7 @@
   $(document).ready(function(){
     $('.sidenav').sidenav({edge: "top"});
     $('select').formSelect();
-    $(this).on("click", "#add_new", function(){
+    $('#add_new').on("click", function(){
         i++;
         let html = `<div class="row step">
                         <div class="input-field col s2 center">
