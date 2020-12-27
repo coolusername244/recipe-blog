@@ -10,12 +10,15 @@
                 <!-- category -->
                 <div class="row">
                     <div class="input-field col s2 center">
-                        <strong class="">Category:</strong>
+                        <strong>Dish Category:</strong>
                     </div>
-                    <div class="div col s10">
-                        <input id="category" name="category" maxlength="50" 
-                            type="text" class="validate" required>
-                        <label for="category">Main, Side, Dessert...</label>
+                    <div class="col s10">
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for category in categories %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                 </div>
                 <!-- dish name -->

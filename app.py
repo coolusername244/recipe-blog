@@ -41,6 +41,7 @@ def full_recipe(recipe_id):
 def add_recipe():
     if request.method == "POST":
         recipe = {
+            "category_name": request.form.get("category_name"),
             "name": request.form.get("name"),
             "time_required": request.form.get("time_required"),
             "preheat_oven": request.form.get("preheat_oven"),
@@ -67,7 +68,8 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added!")
         return redirect(url_for("recipes"))
-    return render_template("add_recipe.html")
+    categories = mongo.db.categories.find()
+    return render_template("add_recipe.html", categories=categories)
 
 
 if __name__ == "__main__":
