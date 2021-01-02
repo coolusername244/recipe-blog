@@ -1,7 +1,8 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for,
+    jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -25,7 +26,8 @@ def index():
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    categories = list(mongo.db.categories.find())
+    return render_template("recipes.html", recipes=recipes, categories=categories)
 
 
 @app.route("/full_recipe/<recipe_id>")
@@ -48,23 +50,12 @@ def add_recipe():
             "ingredients": request.form.get("ingredients"),
             "allergy_info": request.form.get("allergy_info"),
             "description": request.form.get("description"),
-            "step_1": request.form.get("step_1"),
-            "step_2": request.form.get("step_2"),
-            "step_3": request.form.get("step_3"),
-            "step_4": request.form.get("step_4"),
-            "step_5": request.form.get("step_5"),
-            "step_6": request.form.get("step_6"),
-            "step_7": request.form.get("step_7"),
-            "step_8": request.form.get("step_8"),
-            "step_9": request.form.get("step_9"),
-            "step_10": request.form.get("step_10"),
-            "step_11": request.form.get("step_11"),
-            "step_12": request.form.get("step_12"),
-            "step_13": request.form.get("step_13"),
-            "step_14": request.form.get("step_14"),
-            "step_15": request.form.get("step_15"),
             "comments": request.form.get("comments")
         }
+        steps = {
+            "steps": request.form.getlist("step[]")
+        }
+        recipe.update(steps)
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added!")
         return redirect(url_for("recipes"))

@@ -46,18 +46,12 @@
                 <!-- pre-heat oven -->
                 <div class="row">
                     <div class="input-field col s2 center">
-                        <strong class="">Pre-Heat Oven:</strong>
+                        <strong class="">Pre-Heat Oven:<br></strong>(optional)
                     </div>
                     <div class="div col s10">
                         <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
                             type="number" class="validate">
                         <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
-                            <p>
-                                <label>
-                                    <input type="checkbox" class="filled-in" checked="checked" />
-                                    <span>Click here if you dont use an oven!</span>
-                                </label>
-                            </p>
                     </div>
 
                 </div>
@@ -77,12 +71,12 @@
                         <strong class="">Allergy Information:</strong>
                     </div>
                     <div class="div col s10">
-                        <textarea id="allergy_info" name="allergy_info" minlength="5" 
-                             class="materialize-textarea validate required"></textarea>
+                        <textarea id="allergy_info" name="allergy_info"
+                             class="materialize-textarea validate" required></textarea>
                         <label for="allergy_info">Vegan, Lactose Free, Gluten Free...</label>
                     </div>
                 </div>
-                <!-- allergy info -->
+                <!-- description -->
                 <div class="row">
                     <div class="input-field col s2 center">
                         <strong class="">Description:</strong>
@@ -93,7 +87,7 @@
                         <label for="description"><em>"A perfect family dinner"</em></label>
                     </div>
                 </div>
-                <div class="steps">
+                <div class="steps" name="steps">
                     <!-- steps -->
                     <div class="div col s12 center">
                         <h5>Please write instructions here, 3 steps are required for submission</h5>
@@ -101,58 +95,33 @@
                     <!-- step 1 -->
                     <div class="row">
                         <div class="input-field col s2 center">
-                            <strong class="">Step 1:</strong>
+                            <strong>Step 1:</strong>
                         </div>
                         <div class="div col s10">
-                            <textarea id="step_1" value="1" name="step_1" minlength="5" 
+                            <textarea id="step_1" name="step[]" minlength="5" 
                                 class="materialize-textarea validate required"></textarea>
-                            <label for="step_1"></label>
                         </div>
                     </div>                
                     <!-- step 2 -->
                     <div class="row">
                         <div class="input-field col s2 center">
-                            <strong class="">Step 2:</strong>
+                            <strong>Step 2:</strong>
                         </div>
                         <div class="div col s10">
-                            <input id="step_2" value="2" name="step_2" minlength="5" 
-                                class="materialize-textarea validate required">
-                            <label for="step_2"></label>
+                            <textarea id="step_2" name="step[]" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
                         </div>
                     </div>                
                     <!-- step 3 -->
                     <div class="row step">
                         <div class="input-field col s2 center">
-                            <strong class="">Step 3:</strong>
+                            <strong>Step 3:</strong>
                         </div>
                         <div class="div col s10">
-                            <textarea id="step_3" value="3" name="step_3" minlength="5" 
+                            <textarea id="step_3" name="step[]" minlength="5" 
                                 class="materialize-textarea validate required"></textarea>
-                            <label for="step_3"></label>
                         </div>
                     </div>      
-                    <!-- step 4 -->
-                    <div class="row step">
-                        <div class="input-field col s2 center">
-                            <strong class="">Step 4:</strong>
-                        </div>
-                        <div class="div col s10">
-                            <textarea id="step_4" value="4" name="step_4" minlength="5" 
-                                class="materialize-textarea validate required"></textarea>
-                            <label for="step_4"></label>
-                        </div>
-                    </div>  
-                    <!-- step 5 -->
-                    <div class="row step">
-                        <div class="input-field col s2 center">
-                            <strong class="">Step 5:</strong>
-                        </div>
-                        <div class="div col s10">
-                            <textarea id="step_5" value="5" name="step_5" minlength="5" 
-                                class="materialize-textarea validate required"></textarea>
-                            <label for="step_5"></label>
-                        </div>
-                    </div>
                 </div>          
                 <!-- add step -->
                 <div class="row">
