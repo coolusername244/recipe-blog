@@ -56,13 +56,19 @@
 
                 </div>
                 <!-- ingredients -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Ingredients:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <textarea id="ingredients" name="ingredients" minlength="5" class="materialize-textarea validate required"></textarea>
-                        <label for="ingredients">Eggs, Flour, Milk...</label>
+                <div class="ingredients">
+                    <div class="row">
+                        <div class="input-field col s12 m2 center">
+                            <strong class="">Ingredient:</strong>
+                        </div>
+                        <div class="col s9 offset-s1 m3">
+                            <textarea id="ingredients" name="ingredients[]" minlength="5" class="materialize-textarea validate required"></textarea>
+                        </div>
+                        <div class="col s1 m1 center">
+                            <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
+                                <i class="fas fa-plus-square center"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <!-- allergy info -->
@@ -126,7 +132,7 @@
                 <!-- add step button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <button type="button" id="add_new" class="btn pink lighten-4 black-text text-shadow">
+                        <button type="button" id="add_new_step" class="btn pink lighten-4 black-text text-shadow">
                             Add New Step <i class="fas fa-plus-square right"></i>
                         </button>
                     </div>

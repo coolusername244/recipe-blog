@@ -47,14 +47,17 @@ def add_recipe():
             "name": request.form.get("name"),
             "time_required": request.form.get("time_required"),
             "preheat_oven": request.form.get("preheat_oven"),
-            "ingredients": request.form.get("ingredients"),
             "allergy_info": request.form.get("allergy_info"),
             "description": request.form.get("description"),
             "comments": request.form.get("comments")
         }
+        ingredients = {
+            "ingredients": request.form.getlist("ingredients[]")
+        }
         steps = {
             "steps": request.form.getlist("step[]")
         }
+        recipe.update(ingredients)
         recipe.update(steps)
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added!")
