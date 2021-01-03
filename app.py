@@ -27,15 +27,20 @@ def index():
 def recipes():
     recipes = list(mongo.db.recipes.find())
     categories = list(mongo.db.categories.find())
-    return render_template("recipes.html", recipes=recipes, categories=categories)
+    return render_template(
+        "recipes.html", recipes=recipes, categories=categories
+        )
 
 
 @app.route("/full_recipe/<recipe_id>")
 def full_recipe(recipe_id):
     recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     full_recipe = list(mongo.db.recipes.find(recipe_id))
+    steps = recipe_id['steps']
+    ingredients = recipe_id['ingredients']
     return render_template(
-        "full_recipe.html", recipe=recipe_id, full_recipe=full_recipe
+        "full_recipe.html", recipe=recipe_id, full_recipe=full_recipe,
+        steps=steps, ingredients=ingredients
         )
 
 
@@ -47,7 +52,7 @@ def add_recipe():
             "name": request.form.get("name"),
             "time_required": request.form.get("time_required"),
             "preheat_oven": request.form.get("preheat_oven"),
-            "allergy_info": request.form.get("allergy_info"),
+            "dietary_info": request.form.get("dietary_info"),
             "description": request.form.get("description"),
             "comments": request.form.get("comments")
         }

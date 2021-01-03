@@ -5,3 +5,7 @@ body {
    .form-border {
        border: solid black 1px;
    }
+
+.ingredients_list {
+    list-style-type: circle;
+   }

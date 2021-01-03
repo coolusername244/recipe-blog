@@ -1,16 +1,71 @@
 {% extends 'base.html' %}
 {% block content %}
+{% for recipe in full_recipe %}
+<div class="row">
+    <div class="col s10 offset-s1">
+        <div class="card cyan lighten-5">
+        <div class="card-content black-text">
+            <span class="card-title">Dish Name: {{ recipe.name }}</span>
+            <span class="card-title">Course: {{ recipe.category_name }}</span>
+            <span class="card-title">Time Required: {{ recipe.time_required }} Minutes</span>
+            {% if recipe.preheat_oven %}
+                <span class="card-title">Pre-heat Oven: {{ recipe.preheat_oven }} Degrees</span>
+            {% endif %}
+            <span class="card-title">Ingredients:
+                <ol class="ingredients_list">
+                    {% for ing in ingredients %}
+                        <li>
+                            {{ ing }}
+                        </li>
+                    {% endfor %}
+                    </ol>
+            </span>
+            <span class="card-title">Instructions:
+                <ol>
+                    {% for step in steps %}
+                        <li>
+                            {{ step }}
+                        </li>
+                    {% endfor %}
+                </ol>
+            </span>           
 
-    {% for recipe in full_recipe %}
-        {{ recipe.category_name }}<br>
-        {{ recipe.name }}<br>
+
+
+        </div>
+        <div class="card-action">
+
+        </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+                    {% for step in steps %}
+                        <ol>
+                            <li>
+                                {{ step }}
+                            </li>
+                        </ol>
+                    {% endfor %}
+                    {% for ing in ingredients %}
+                        <ol>
+                            <li>
+                                {{ ing }}
+                            </li>
+                        </ol>
+                    {% endfor %}
+    
+        <br>
+        <br>
         {{ recipe.time_required }}<br>
         {{ recipe.preheat_oven }}<br>
         {{ recipe.ingredients }}<br>
         {{ recipe.allergy_info }}<br>
-        {{ recipe.description }}<br>
+        <br>
         {{ recipe.steps }}<br>
 
-    {% endfor %}
+    
 
-{% endblock %}

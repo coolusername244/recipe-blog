@@ -13,7 +13,7 @@ $(document).ready(function(){
                                 <textarea id="step_${i}" name="step[]" minlength="5" class="materialize-textarea validate required"></textarea>
                             </div>
                             <div class="col s1 m1 center">
-                                    <button type="button" id="delete" class="btn pink lighten-4 black-text text-shadow ">
+                                    <button type="button" id="delete_step" class="btn pink lighten-4 black-text text-shadow ">
                                         <i class="far fa-times-circle"></i>
                                     </button>
                                 </div>
@@ -26,18 +26,25 @@ $(document).ready(function(){
                                     <strong class="">Ingredient:</strong>
                                 </div>
                                 <div class="col s9 offset-s1 m3">
-                                    <textarea id="ingredients" name="ingredients[]" minlength="5" class="materialize-textarea validate required"></textarea>
+                                    <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required"></textarea>
                                 </div>
                                 <div class="col s1 m1 center">
-                                    <button type="button" id="delete" class="btn pink lighten-4 black-text text-shadow ">
+                                    <button type="button" id="delete_ingredient" class="btn pink lighten-4 black-text text-shadow ">
                                         <i class="far fa-times-circle"></i>
                                     </button>
                                 </div>
                             </div>`;
         $('.ingredients').append(ingredientHTML);
     })
-    $(this).on("click", "#delete", function() {
+    $(this).on("click", "#delete_step", function() {
+        i--
+        let deleteInput = $(this).parent().parent();
+        deleteInput.remove()
+        // code to make i = +1 of last step
+    })
+    $(this).on("click", "#delete_ingredient", function() {
         let deleteInput = $(this).parent().parent();
         deleteInput.remove()
     })
+    
 });
