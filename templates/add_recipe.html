@@ -9,10 +9,10 @@
                 </div>
                 <!-- category -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong>Dish Category:</strong>
                     </div>
-                    <div class="col s10">
+                    <div class="col s10 offset-s1 m10">
                         <select id="category_name" name="category_name" class="validate" required>
                             <option value="" disabled selected>Choose Category</option>
                             {% for category in categories %}
@@ -23,10 +23,10 @@
                 </div>
                 <!-- dish name -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Dish Name:</strong>
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <input id="name" name="name" minlength="5" maxlength="50" 
                             type="text" class="validate" required>
                         <label for="name">Enter Dish Name</label>
@@ -34,10 +34,10 @@
                 </div>
                 <!-- time required -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Time Required:</strong>
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <input id="time_required" name="time_required" minlength="5" maxlength="50" 
                             type="number" class="validate" required>
                         <label for="time_required">Enter Time Required (Minutes)</label>
@@ -45,10 +45,10 @@
                 </div>
                 <!-- pre-heat oven -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Pre-Heat Oven:<br></strong>(optional)
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
                             type="number" class="validate">
                         <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
@@ -57,20 +57,20 @@
                 </div>
                 <!-- ingredients -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Ingredients:</strong>
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <textarea id="ingredients" name="ingredients" minlength="5" class="materialize-textarea validate required"></textarea>
                         <label for="ingredients">Eggs, Flour, Milk...</label>
                     </div>
                 </div>
                 <!-- allergy info -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Allergy Information:</strong>
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <textarea id="allergy_info" name="allergy_info"
                              class="materialize-textarea validate" required></textarea>
                         <label for="allergy_info">Vegan, Lactose Free, Gluten Free...</label>
@@ -78,10 +78,10 @@
                 </div>
                 <!-- description -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Description:</strong>
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <textarea id="description" name="description" minlength="5" 
                              class="materialize-textarea validate required"></textarea>
                         <label for="description"><em>"A perfect family dinner"</em></label>
@@ -94,36 +94,36 @@
                     </div>
                     <!-- step 1 -->
                     <div class="row">
-                        <div class="input-field col s2 center">
+                        <div class="input-field col s12 m2 center">
                             <strong>Step 1:</strong>
                         </div>
-                        <div class="div col s10">
+                        <div class="col s10 offset-s1 m10">
                             <textarea id="step_1" name="step[]" minlength="5" 
                                 class="materialize-textarea validate required"></textarea>
                         </div>
                     </div>                
                     <!-- step 2 -->
                     <div class="row">
-                        <div class="input-field col s2 center">
+                        <div class="input-field col s12 m2 center">
                             <strong>Step 2:</strong>
                         </div>
-                        <div class="div col s10">
+                        <div class="col s10 offset-s1 m10">
                             <textarea id="step_2" name="step[]" minlength="5" 
                                 class="materialize-textarea validate required"></textarea>
                         </div>
                     </div>                
                     <!-- step 3 -->
                     <div class="row step">
-                        <div class="input-field col s2 center">
+                        <div class="input-field col s12 m2 center">
                             <strong>Step 3:</strong>
                         </div>
-                        <div class="div col s10">
+                        <div class="col s10 offset-s1 m10">
                             <textarea id="step_3" name="step[]" minlength="5" 
                                 class="materialize-textarea validate required"></textarea>
                         </div>
                     </div>      
                 </div>          
-                <!-- add step -->
+                <!-- add step button -->
                 <div class="row">
                     <div class="col s12 center-align">
                         <button type="button" id="add_new" class="btn pink lighten-4 black-text text-shadow">
@@ -133,10 +133,10 @@
                 </div>
                 <!-- comments -->
                 <div class="row">
-                    <div class="input-field col s2 center">
+                    <div class="input-field col s12 m2 center">
                         <strong class="">Comments</strong>
                     </div>
-                    <div class="div col s10">
+                    <div class="col s10 offset-s1 m10">
                         <textarea id="comments" name="comments" minlength="5" 
                             maxlength="500" class="materialize-textarea validate"></textarea>
                         <label for="comments">Comments, Any Extra Steps...</label>
