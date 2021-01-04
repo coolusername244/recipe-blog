@@ -19,7 +19,7 @@
                 <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
                 <li><a class="black-text" href="{{ url_for('recipes') }}">Recipes</a></li>
                 <li><a class="black-text" href="#">Login</a></li>
-                <li><a class="black-text" href="#">Register</a></li>
+                <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
                 <li><a class="black-text" href="#">Manage</a></li>
             </ul>
     </div>
@@ -30,7 +30,7 @@
     <li><a href="{{ url_for('index') }}">Home</a></li>
     <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
     <li><a href="#">Login</a></li>
-    <li><a href="#">Register</a></li>
+    <li><a href="{{ url_for('register') }}">Register</a></li>
     <li><a href="#">Manage</a></li>
 </ul>
 
