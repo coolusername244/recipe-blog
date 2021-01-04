@@ -18,7 +18,8 @@
             <ul class="right hide-on-med-and-down">
                 <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
                 <li><a class="black-text" href="{{ url_for('recipes') }}">Recipes</a></li>
-                <li><a class="black-text" href="#">Login</a></li>
+                <li><a class="black-text" href="{{ url_for('login') }}">Login</a></li>
+                <li><a class="black-text" href="{{ url_for('logout') }}">Log Out</a></li>
                 <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
                 <li><a class="black-text" href="#">Manage</a></li>
             </ul>
@@ -29,7 +30,8 @@
 <ul class="sidenav pink lighten-4" id="mobile-demo">
     <li><a href="{{ url_for('index') }}">Home</a></li>
     <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-    <li><a href="#">Login</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
     <li><a href="{{ url_for('register') }}">Register</a></li>
     <li><a href="#">Manage</a></li>
 </ul>
