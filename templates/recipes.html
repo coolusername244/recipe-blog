@@ -30,7 +30,7 @@
                         <div class="card-content center">
                             <p>{{ recipe.description }}</p>
                         </div>
-                        {% if session.user %}
+                        {% if session.user|lower == "maria" %}
                             <div class="card-action center">
                                 <div class="row">
                                     <div class="col s6">
@@ -39,6 +39,24 @@
                                     <div class="col s6">
                                         <a class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
                                         <a class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% elif session.user %}
+                            <div class="card-action center">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
+                                    </div>
+                                    <div class="col s6">
+                                        {% if session.user == recipe.created_by %}
+                                            <a class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
+                                            <a class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
+                                        {% else %}
+                                            <a class="btn-floating btn waves-effect waves-light green disabled"><i class="far fa-edit"></i></a>
+                                            <a class="btn-floating btn waves-effect waves-light red disabled"><i class="far fa-times-circle"></i></a>
+                                        {% endif %}
+                                        
                                     </div>
                                 </div>
                             </div>

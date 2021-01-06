@@ -111,16 +111,20 @@ def login():
 
 @app.route("/my_recipes", methods=["GET", "POST"])
 def my_recipes():
+    recipes = list(mongo.db.recipes.find())
+    categories = list(mongo.db.categories.find())
+
     if session["user"]:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         return render_template(
             "my_recipes.html",
-            username=username
+            username=username,
+            recipes=recipes,
+            categories=categories
             )
 
     return render_template(url_for("login"))
-
 
 
 @app.route("/logout")
@@ -134,6 +138,8 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
         recipe = {
             "category_name": request.form.get("category_name"),
             "name": request.form.get("name"),
@@ -141,7 +147,8 @@ def add_recipe():
             "preheat_oven": request.form.get("preheat_oven"),
             "dietary_info": request.form.get("dietary_info"),
             "description": request.form.get("description"),
-            "comments": request.form.get("comments")
+            "comments": request.form.get("comments"),
+            "created_by": username
         }
         ingredients = {
             "ingredients": request.form.getlist("ingredients[]")

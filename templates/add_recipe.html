@@ -140,12 +140,22 @@
                 <!-- comments -->
                 <div class="row">
                     <div class="input-field col s12 m2 center">
-                        <strong class="">Comments</strong>
+                        <strong class="">Comments:</strong>
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <textarea id="comments" name="comments" minlength="5" 
                             maxlength="500" class="materialize-textarea validate"></textarea>
                         <label for="comments">Comments, Any Extra Steps...</label>
+                    </div>
+                </div>
+                <!-- created by -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Created By:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <textarea id="created_by" name="created_by" 
+                            disabled class="materialize-textarea validate">{{ session.user }}</textarea>
                     </div>
                 </div>
                 <!-- submit button -->
