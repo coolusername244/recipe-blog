@@ -120,10 +120,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get(
                     "password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -143,6 +143,14 @@ def logout():
     flash("You have been logged out!")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/my_recipes")
+def my_recipes():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    return render_template("my_recipes.html", username=username)
 
 
 if __name__ == "__main__":

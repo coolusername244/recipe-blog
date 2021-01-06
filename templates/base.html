@@ -21,7 +21,7 @@
                 <li><a class="black-text" href="{{ url_for('login') }}">Login</a></li>
                 <li><a class="black-text" href="{{ url_for('logout') }}">Log Out</a></li>
                 <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
-                <li><a class="black-text" href="#">Manage</a></li>
+                <li><a class="black-text" href="{{ url_for('my_recipes') }}">My Recipes</a></li>
             </ul>
     </div>
 </nav>
@@ -33,7 +33,7 @@
     <li><a href="{{ url_for('login') }}">Login</a></li>
     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
     <li><a href="{{ url_for('register') }}">Register</a></li>
-    <li><a href="#">Manage</a></li>
+    <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
 </ul>
 
 <section>

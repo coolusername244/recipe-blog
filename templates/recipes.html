@@ -31,7 +31,15 @@
                             <p>{{ recipe.description }}</p>
                         </div>
                         <div class="card-action center">
-                            <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
+                            <div class="row">
+                                <div class="col s6">
+                                    <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
+                                </div>
+                                <div class="col s6">
+                                      <a class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
+                                      <a class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,9 +47,4 @@
         {% endfor %}
     </div>
 {% endfor %}
-<div class="row">
-    <div class="col s12">
-        <a href="{{ url_for('add_recipe') }}" class="waves-effect waves-light btn">Add New Recipe!</a>
-    </div>
-</div>
 {% endblock %}
