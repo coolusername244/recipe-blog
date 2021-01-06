@@ -168,6 +168,48 @@ def add_recipe():
         )
 
 
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe Deleted!")
+    return redirect(url_for("my_recipes"))
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        updated_recipe = {
+            "category_name": request.form.get("category_name"),
+            "name": request.form.get("name"),
+            "time_required": request.form.get("time_required"),
+            "preheat_oven": request.form.get("preheat_oven"),
+            "dietary_info": request.form.get("dietary_info"),
+            "description": request.form.get("description"),
+            "comments": request.form.get("comments"),
+            "created_by": session["user"]
+        }
+        ingredients = {
+            "ingredients": request.form.getlist("ingredients[]")
+        }
+        steps = {
+            "steps": request.form.getlist("step[]")
+        }
+        updated_recipe.update(ingredients)
+        updated_recipe.update(steps)
+        mongo.db.recipes.update({"_id": ObjectId}, updated_recipe)
+        flash("Recipe updated!")
+
+    categories = mongo.db.categories.find()
+    steps = mongo.db.recipes.find_one("steps[]")
+    ingredients = mongo.db.recipes.find_one("ingredients[]")
+    return render_template(
+        "edit_recipe.html",
+        categories=categories,
+        steps=steps,
+        ingredients=ingredients
+        )
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

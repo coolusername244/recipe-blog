@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row card-panel pink lighten-5">
+            <form class="col offset-s1 s10 grey lighten-5 form-border form" method="POST" action="{{ url_for('add_recipe') }}">
+                <div class="center">
+                    <h4>
+                        Write your new recipe here!
+                    </h4>
+                </div>
+                <!-- category -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong>Dish Category:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for category in categories %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <!-- dish name -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Dish Name:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <input id="name" name="name" minlength="5" maxlength="50" 
+                            type="text" class="validate" required>
+                        <label for="name">Enter Dish Name</label>
+                    </div>
+                </div>
+                <!-- time required -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Time Required:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <input id="time_required" name="time_required" minlength="5" maxlength="50" 
+                            type="number" class="validate" required>
+                        <label for="time_required">Enter Time Required (Minutes)</label>
+                    </div>
+                </div>
+                <!-- pre-heat oven -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Pre-Heat Oven:<br></strong>(optional)
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
+                            type="number" class="validate">
+                        <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
+                    </div>
+
+                </div>
+                <!-- ingredients -->
+                <div class="ingredients">
+                    <div class="row">
+                        <div class="input-field col s12 m2 center">
+                            <strong class="">Ingredient:</strong>
+                        </div>
+                        <div class="col s9 offset-s1 m3">
+                            <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required"></textarea>
+                        </div>
+                        <div class="col s1 m1 center">
+                            <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
+                                <i class="fas fa-plus-square center"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- dietary info -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Dietary Information:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <textarea id="dietary_info" name="dietary_info"
+                             class="materialize-textarea validate" required></textarea>
+                        <label for="dietary_info">Vegan, Lactose Free, Gluten Free...</label>
+                    </div>
+                </div>
+                <!-- description -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Description:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <textarea id="description" name="description" minlength="5" 
+                             class="materialize-textarea validate required"></textarea>
+                        <label for="description"><em>"A perfect family dinner"</em></label>
+                    </div>
+                </div>
+                <div class="steps" name="steps">
+                    <!-- steps -->
+                    <div class="div col s12 center">
+                        <h5>Please write instructions here, 3 steps are required for submission</h5>
+                    </div>
+                    <!-- step 1 -->
+                    <div class="row">
+                        <div class="input-field col s12 m2 center">
+                            <strong>Step 1:</strong>
+                        </div>
+                        <div class="col s10 offset-s1 m10">
+                            <textarea id="step_1" name="step[]" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                        </div>
+                    </div>                
+                    <!-- step 2 -->
+                    <div class="row">
+                        <div class="input-field col s12 m2 center">
+                            <strong>Step 2:</strong>
+                        </div>
+                        <div class="col s10 offset-s1 m10">
+                            <textarea id="step_2" name="step[]" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                        </div>
+                    </div>                
+                    <!-- step 3 -->
+                    <div class="row step">
+                        <div class="input-field col s12 m2 center">
+                            <strong>Step 3:</strong>
+                        </div>
+                        <div class="col s10 offset-s1 m10">
+                            <textarea id="step_3" name="step[]" minlength="5" 
+                                class="materialize-textarea validate required"></textarea>
+                        </div>
+                    </div>      
+                </div>          
+                <!-- add step button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="button" id="add_new_step" class="btn pink lighten-4 black-text text-shadow">
+                            Add New Step <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- comments -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Comments:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <textarea id="comments" name="comments" minlength="5" 
+                            maxlength="500" class="materialize-textarea validate"></textarea>
+                        <label for="comments">Comments, Any Extra Steps...</label>
+                    </div>
+                </div>
+                <!-- created by -->
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Created By:</strong>
+                    </div>
+                    <div class="col s10 offset-s1 m10">
+                        <textarea id="created_by" name="created_by" 
+                            disabled class="materialize-textarea validate">{{ session.user }}</textarea>
+                    </div>
+                </div>
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large pink lighten-4 black-text text-shadow">
+                            Add New Recipe! <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+{% endblock %}
