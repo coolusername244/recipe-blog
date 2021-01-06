@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row card-panel pink lighten-5">
-            <form class="col offset-s1 s10 grey lighten-5 form-border form" method="POST" action="{{ url_for('add_recipe') }}">
+            <form class="col offset-s1 s10 grey lighten-5 form-border form" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
                 <div class="center">
                     <h4>
-                        Write your new recipe here!
+                        Edit your recipe here!
                     </h4>
                 </div>
                 <!-- category -->
@@ -16,7 +16,11 @@
                         <select id="category_name" name="category_name" class="validate" required>
                             <option value="" disabled selected>Choose Category</option>
                             {% for category in categories %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% if category.category_name == recipe.category_name %}
+                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                {% else %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>
@@ -28,7 +32,8 @@
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <input id="name" name="name" minlength="5" maxlength="50" 
-                            type="text" class="validate" required>
+                            type="text" class="validate" required
+                            value="{{ recipe.name|capitalize }}">
                         <label for="name">Enter Dish Name</label>
                     </div>
                 </div>
@@ -39,7 +44,7 @@
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <input id="time_required" name="time_required" minlength="5" maxlength="50" 
-                            type="number" class="validate" required>
+                            type="number" class="validate" required value="{{ recipe.time_required }}">
                         <label for="time_required">Enter Time Required (Minutes)</label>
                     </div>
                 </div>
@@ -50,7 +55,7 @@
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
-                            type="number" class="validate">
+                            type="number" class="validate" value="{{ recipe.preheat_oven }}">
                         <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
                     </div>
 
@@ -78,7 +83,9 @@
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <textarea id="dietary_info" name="dietary_info"
-                             class="materialize-textarea validate" required></textarea>
+                             class="materialize-textarea validate" required value="{{ recipe.dietary_info }}">
+                            {{- recipe.dietary_info -}}
+                            </textarea>
                         <label for="dietary_info">Vegan, Lactose Free, Gluten Free...</label>
                     </div>
                 </div>
@@ -89,7 +96,9 @@
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <textarea id="description" name="description" minlength="5" 
-                             class="materialize-textarea validate required"></textarea>
+                             class="materialize-textarea validate required" >
+                            {{- recipe.description -}}
+                            </textarea>
                         <label for="description"><em>"A perfect family dinner"</em></label>
                     </div>
                 </div>
@@ -144,7 +153,9 @@
                     </div>
                     <div class="col s10 offset-s1 m10">
                         <textarea id="comments" name="comments" minlength="5" 
-                            maxlength="500" class="materialize-textarea validate"></textarea>
+                            maxlength="500" class="materialize-textarea validate">
+                            {{- recipe.comments -}}
+                        </textarea>
                         <label for="comments">Comments, Any Extra Steps...</label>
                     </div>
                 </div>
