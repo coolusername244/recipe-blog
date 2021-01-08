@@ -9,3 +9,7 @@ body {
 .ingredients_list {
     list-style-type: circle;
    }
+
+.hidden {
+    display: none;
+}

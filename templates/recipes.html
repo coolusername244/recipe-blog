@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% if session.user|lower == "maria" %}
+<button id="manage">manage</button>
+{% endif %}
 {% for category in categories %}
     <div class="row">
         <div class="col s12 center">
@@ -30,40 +32,19 @@
                         <div class="card-content center">
                             <p>{{ recipe.description }}</p>
                         </div>
-                        {% if session.user|lower == "maria" %}
                             <div class="card-action center">
                                 <div class="row">
-                                    <div class="col s6">
+                                    <div class="col s12">
                                         <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
                                     </div>
-                                    <div class="col s6">
-                                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
+                                    <div class="col s6 hidden">
+                                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
+                                    </div>
+                                    <div class="col s6 hidden">
                                         <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        {% elif session.user %}
-                            <div class="card-action center">
-                                <div class="row">
-                                    <div class="col s6">
-                                        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
-                                    </div>
-                                    <div class="col s6">
-                                        {% if session.user == recipe.created_by %}
-                                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
-                                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
-                                        {% else %}
-                                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" disabled class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
-                                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" disabled class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        {% else %}
-                            <div class="card-action center">
-                                <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
-                            </div>
-                        {% endif %}
                     </div>
                 </div>
             {% endif %}

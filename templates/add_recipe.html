@@ -62,7 +62,7 @@
                             <strong class="">Ingredient:</strong>
                         </div>
                         <div class="col s9 offset-s1 m3">
-                            <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required"></textarea>
+                            <textarea id="ingredients" name="ingredients[]" required class="materialize-textarea validate"></textarea>
                         </div>
                         <div class="col s1 m1 center">
                             <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
@@ -158,12 +158,17 @@
                             disabled class="materialize-textarea validate">{{ session.user }}</textarea>
                     </div>
                 </div>
-                <!-- submit button -->
+                <!-- submit/cancel buttons -->
                 <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="submit" class="btn-large pink lighten-4 black-text text-shadow">
+                    <div class="col s12 m4 offset-m2 center-align">
+                        <button type="submit" class="btn-large green lighten-2 black-text text-shadow">
                             Add New Recipe! <i class="fas fa-plus-square right"></i>
                         </button>
+                    </div>
+                    <div class="col s12 m4 center-align">
+                        <a type="button" href="{{ url_for('my_recipes') }}" class="btn-large red lighten-2 black-text text-shadow">
+                            Cancel <i class="fas fa-plus-square right"></i>
+                        </a>
                     </div>
                 </div>
             </form>

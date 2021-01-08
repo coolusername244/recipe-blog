@@ -51,4 +51,7 @@ $(document).ready(function(){
         let deleteInput = $(this).parent().parent();
         deleteInput.remove()
     })
+    $('#manage').on("click", function() {
+        $('.hidden').toggle();
+    })
 });
