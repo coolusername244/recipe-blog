@@ -115,7 +115,7 @@
                 <!-- steps -->
                 <div class="steps" name="steps">
                     <div class="div col s12 center">
-                        <h5>Please write instructions here, 3 steps are required for submission</h5>
+                        <h5>3 steps are required for submission</h5>
                     </div>
                     <!-- step 1 -->
                     {% for step in steps %}
@@ -123,13 +123,26 @@
                             <div class="input-field col s12 m2 center">
                                 <strong>Step {{ loop.index }}:</strong>
                             </div>
+                            {% if loop.index <= 3 %}
                             <div class="col s10 offset-s1 m10">
                                 <textarea id="step_{{ loop.index }}" name="step[]" minlength="5" class="materialize-textarea validate required">
                                     {{- step|capitalize-}}
                                 </textarea>
                             </div>
+                            {% else %}
+                            <div class="col s9 offset-s1 m9">
+                                <textarea id="step_{{ loop.index }}" name="step[]" minlength="5" class="materialize-textarea validate required">
+                                    {{- step|capitalize-}}
+                                </textarea>
+                            </div>
+                            <div class="col s1 m1 center">
+                                    <button type="button" id="delete_step" class="btn pink lighten-4 black-text text-shadow ">
+                                        <i class="far fa-times-circle"></i>
+                                    </button>
+                                </div>
+                            {% endif %}
                         </div>
-                    {% endfor %}                      
+                    {% endfor %}   
                 </div>          
                 <!-- add step button -->
                 <div class="row">
@@ -164,10 +177,15 @@
                 </div>
                 <!-- submit button -->
                 <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="submit" class="btn-large pink lighten-4 black-text text-shadow">
+                    <div class="col s12 m4 offset-m2 center-align">
+                        <button type="submit" class="btn-large green lighten-2 black-text text-shadow">
                             Add New Recipe! <i class="fas fa-plus-square right"></i>
                         </button>
+                    </div>
+                    <div class="col s12 m4 center-align">
+                        <a type="button" href="{{ url_for('my_recipes') }}" class="btn-large red lighten-2 black-text text-shadow">
+                            Cancel <i class="fas fa-plus-square right"></i>
+                        </a>
                     </div>
                 </div>
             </form>

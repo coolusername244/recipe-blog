@@ -2,7 +2,9 @@ let i = 3
 
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "top"});
+
     $('select').formSelect();
+
     $(this).on("click", "#add_new_step", function() {
         i++;
         let stepHTML = `<div class="row step">
@@ -20,6 +22,7 @@ $(document).ready(function(){
                         </div>`
         $('.steps').append(stepHTML);
     });
+
     $(this).on("click", "#add_new_ingredient", function() {
         let ingredientHTML = `<div class="row">
                                 <div class="input-field col s12 m2 center">
@@ -36,15 +39,16 @@ $(document).ready(function(){
                             </div>`;
         $('.ingredients').append(ingredientHTML);
     })
+
     $(this).on("click", "#delete_step", function() {
         i--
         let deleteInput = $(this).parent().parent();
         deleteInput.remove()
         // code to make i = +1 of last step
     })
+
     $(this).on("click", "#delete_ingredient", function() {
         let deleteInput = $(this).parent().parent();
         deleteInput.remove()
     })
-    
 });
