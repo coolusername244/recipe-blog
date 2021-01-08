@@ -196,14 +196,14 @@ def edit_recipe(recipe_id):
         }
         updated_recipe.update(ingredients)
         updated_recipe.update(steps)
-        mongo.db.recipes.update({"_id": ObjectId}, updated_recipe)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, updated_recipe)
         flash("Recipe updated!")
 
     recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     full_recipe = list(mongo.db.recipes.find(recipe_id))
     categories = mongo.db.categories.find()
-    steps = mongo.db.recipes.find_one("steps[]")
-    ingredients = mongo.db.recipes.find_one("ingredients[]")
+    steps = recipe_id['steps']
+    ingredients = recipe_id['ingredients']
     return render_template(
         "edit_recipe.html",
         recipe=recipe_id,

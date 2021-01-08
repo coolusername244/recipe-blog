@@ -61,21 +61,31 @@
 
                 </div>
                 <!-- ingredients -->
-                <div class="ingredients">
-                    <div class="row">
-                        <div class="input-field col s12 m2 center">
-                            <strong class="">Ingredient:</strong>
-                        </div>
-                        <div class="col s9 offset-s1 m3">
-                            <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required"></textarea>
-                        </div>
-                        <div class="col s1 m1 center">
-                            <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
-                                <i class="fas fa-plus-square center"></i>
-                            </button>
+                {% for ing in ingredients %}
+                    <div class="ingredients">
+                        <div class="row">
+                            <div class="input-field col s12 m2 center">
+                                <strong class="">Ingredient:</strong>
+                            </div>
+                            <div class="col s9 offset-s1 m3">
+                                <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required">
+                                    {{- ing|capitalize -}}
+                                </textarea>
+                            </div>
+                            <div class="col s1 m1 center">
+                                {% if loop.index0 %}
+                                    <button type="button" id="delete_ingredient" class="btn pink lighten-4 black-text text-shadow ">
+                                        <i class="far fa-times-circle"></i>
+                                    </button>
+                                {% else %}                                
+                                    <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
+                                        <i class="fas fa-plus-square center"></i>
+                                    </button>
+                                {% endif %}
+                            </div>   
                         </div>
                     </div>
-                </div>
+                {% endfor %}
                 <!-- dietary info -->
                 <div class="row">
                     <div class="input-field col s12 m2 center">
@@ -102,41 +112,24 @@
                         <label for="description"><em>"A perfect family dinner"</em></label>
                     </div>
                 </div>
+                <!-- steps -->
                 <div class="steps" name="steps">
-                    <!-- steps -->
                     <div class="div col s12 center">
                         <h5>Please write instructions here, 3 steps are required for submission</h5>
                     </div>
                     <!-- step 1 -->
-                    <div class="row">
-                        <div class="input-field col s12 m2 center">
-                            <strong>Step 1:</strong>
+                    {% for step in steps %}
+                        <div class="row">
+                            <div class="input-field col s12 m2 center">
+                                <strong>Step {{ loop.index }}:</strong>
+                            </div>
+                            <div class="col s10 offset-s1 m10">
+                                <textarea id="step_{{ loop.index }}" name="step[]" minlength="5" class="materialize-textarea validate required">
+                                    {{- step|capitalize-}}
+                                </textarea>
+                            </div>
                         </div>
-                        <div class="col s10 offset-s1 m10">
-                            <textarea id="step_1" name="step[]" minlength="5" 
-                                class="materialize-textarea validate required"></textarea>
-                        </div>
-                    </div>                
-                    <!-- step 2 -->
-                    <div class="row">
-                        <div class="input-field col s12 m2 center">
-                            <strong>Step 2:</strong>
-                        </div>
-                        <div class="col s10 offset-s1 m10">
-                            <textarea id="step_2" name="step[]" minlength="5" 
-                                class="materialize-textarea validate required"></textarea>
-                        </div>
-                    </div>                
-                    <!-- step 3 -->
-                    <div class="row step">
-                        <div class="input-field col s12 m2 center">
-                            <strong>Step 3:</strong>
-                        </div>
-                        <div class="col s10 offset-s1 m10">
-                            <textarea id="step_3" name="step[]" minlength="5" 
-                                class="materialize-textarea validate required"></textarea>
-                        </div>
-                    </div>      
+                    {% endfor %}                      
                 </div>          
                 <!-- add step button -->
                 <div class="row">
