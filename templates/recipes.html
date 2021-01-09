@@ -6,10 +6,10 @@
             <div class="col s12 center">
                 <h4 class="admin-heading">Welcome, {{ session.user|capitalize }}</h4>
             </div>
-            <div class="col s6 center">
+            <div class="col s12 m6 center">
                 <button class="btn pink lighten-4 black-text text-shadow" id="manage">Recipe Editor</button>
             </div>
-            <div class="col s6 center">
+            <div class="col s12 m6 center">
                 <a href="{{ url_for('add_recipe') }}" class="btn pink lighten-4 black-text text-shadow">Add New Recipe</a>
             </div>
         </div>
