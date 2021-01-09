@@ -12,7 +12,7 @@ $(document).ready(function(){
                                 <strong class="">Step ${i}:</strong>
                             </div>
                             <div class="col s9 offset-s1 m9">
-                                <textarea id="step_${i}" name="step[]" minlength="5" class="materialize-textarea validate required"></textarea>
+                                <textarea id="step_${i}" name="step[]" minlength="5" required class="materialize-textarea validate"></textarea>
                             </div>
                             <div class="col s1 m1 center">
                                     <button type="button" id="delete_step" class="btn pink lighten-4 black-text text-shadow ">
@@ -29,7 +29,7 @@ $(document).ready(function(){
                                     <strong class="">Ingredient:</strong>
                                 </div>
                                 <div class="col s9 offset-s1 m3">
-                                    <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required"></textarea>
+                                    <textarea id="ingredients" name="ingredients[]" required class="materialize-textarea validate"></textarea>
                                 </div>
                                 <div class="col s1 m1 center">
                                     <button type="button" id="delete_ingredient" class="btn pink lighten-4 black-text text-shadow ">
