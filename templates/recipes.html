@@ -1,63 +1,75 @@
 {% extends "base.html" %}
 {% block content %}
-
-{% if session.user|lower == "maria" %}
-    <button id="manage">manage</button>
-{% endif %}
-
-{% for category in categories %}
-    <div class="row">
-        <div class="col s12 center">
-            <h4 class="category-header">{{category.category_name}}s</h4>
+    {% if session.user|lower == "maria" %}
+    <div class="container">
+        <div class="row card-panel admin-welcome">
+            <div class="col s12 center">
+                <h4 class="admin-heading">Welcome, {{ session.user|capitalize }}</h4>
+            </div>
+            <div class="col s6 center">
+                <button class="btn pink lighten-4 black-text text-shadow" id="manage">Recipe Editor</button>
+            </div>
+            <div class="col s6 center">
+                <a href="{{ url_for('add_recipe') }}" class="btn pink lighten-4 black-text text-shadow">Add New Recipe</a>
+            </div>
         </div>
     </div>
-    <div class="row center">
-        <div class="col s12 ">
-            <div class="card-panel recipe-panel">
-                <div class="row">
-                    {% for recipe in recipes %}
-                        {% if recipe.category_name == category.category_name %}
-                            <div class="col m4">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col s6">
-                                            <div class="card-image">
-                                                <img src="{{ url_for('static', filename='images/maria-dress.jpg') }}">
+    {% endif %}
+    {% for category in categories %}
+        <div class="row">
+            <div class="col s12 center">
+                <h4 class="category-header">{{category.category_name}}s</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel">
+                    <div class="row">
+                        {% for recipe in recipes %}
+                            {% if recipe.category_name == category.category_name %}
+                                <div class="col s12 m6 l4">
+                                    <div class="card">
+                                        <div class="row">
+                                            <div class="col s12 center">
+                                                <span class="card-title">{{ recipe.name }}</span>
+                                            </div>
+                                            <div class="col s5 offset-s1">
+                                                <div class="card-image">
+                                                    <img src="{{ url_for('static', filename='images/maria-dress.jpg') }}">
+                                                </div>
+                                            </div>
+                                            <div class="col s6 center">
+                                                <p><i class="fas fa-hourglass-half"></i>:  {{ recipe.time_required }} minutes</p>
+                                            </div>
+                                            <div class="col s6 center">
+                                                <p>Serves: <br>{{ recipe.serves }}</p>
                                             </div>
                                         </div>
-                                        <div class="col s6 center">
-                                            <span class="card-title">{{ recipe.name }}</span>
+                                        <div class="card-content center hide-on-med-only">
+                                            <p>{{ recipe.description }}</p>
                                         </div>
-                                        <div class="col s6 center">
-                                            <p><i class="fas fa-hourglass-half"></i>:  {{ recipe.time_required }} minutes</p>
-                                        </div>
-                                        <div class="col s6 center">
-                                            <p>Serves: <br>{{ recipe.dietary_info }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-content center">
-                                        <p>{{ recipe.description }}</p>
-                                    </div>
                                         <div class="card-action center">
                                             <div class="row">
                                                 <div class="col s12">
                                                     <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe!</a>
                                                 </div>
-                                                <div class="col s6 hidden">
-                                                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
+                                            </div>
+                                            <div class="row hidden">
+                                                <div class="col s6">
+                                                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light green"><i class="far fa-edit"></i></a>
                                                 </div>
-                                                <div class="col s6 hidden">
+                                                <div class="col s6">
                                                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-floating btn waves-effect waves-light red"><i class="far fa-times-circle"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            {% endif %}
-                    {% endfor %}
+                            {% endif %} 
+                        {% endfor %}   
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
 {% endblock %}

@@ -4,21 +4,21 @@ body {
     background-color: #fce4ec;
     font-family: "abel", sans-serif;
     font-size: large;
-   }
+}
 
-   .form-border {
-       border: solid black 1px;
-   }
+.form-border {
+    border: solid black 1px;
+}
 
 .ingredients_list {
     list-style-type: circle;
-   }
+}
 
 .hidden {
     display: none;
 }
 
-.recipe-panel {
+.card-panel {
     background-color: #FFF4F8;
 }
 
@@ -26,6 +26,14 @@ body {
     text-decoration: underline;
 }
 
-.card-title {
-    font-size: large;
+.card-image {
+    border: black solid 1px;
+}
+
+.admin-heading {
+    margin-top: 0;
+}
+
+.admin-welcome{
+    margin-top: 3rem;
 }
