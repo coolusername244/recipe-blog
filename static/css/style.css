@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
 body {
     background-color: #fce4ec;
+    font-family: "abel", sans-serif;
+    font-size: large;
    }
 
    .form-border {
@@ -12,4 +16,16 @@ body {
 
 .hidden {
     display: none;
+}
+
+.recipe-panel {
+    background-color: #FFF4F8;
+}
+
+.category-header {
+    text-decoration: underline;
+}
+
+.card-title {
+    font-size: large;
 }
