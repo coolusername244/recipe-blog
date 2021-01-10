@@ -1,38 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for recipe in full_recipe %}
-<div class="row">
-    <div class="col s10 offset-s1">
-        <div class="card-panel cyan lighten-5">
-            <div class=" black-text">
-                <span class="card-title">Dish Name: {{ recipe.name }}</span>
-                <span class="card-title">Course: {{ recipe.category_name }}</span>
-                <span class="card-title">Dietary Info: {{ recipe.dietary_info }}</span>
-                <span class="card-title">Time Required: {{ recipe.time_required }} Minutes</span>
-                {% if recipe.preheat_oven %}
-                    <span class="card-title">Pre-heat Oven: {{ recipe.preheat_oven }} Degrees</span>
-                {% endif %}
-                <span class="card-title">Ingredients:
-                    <ol class="ingredients_list">
-                        {% for ing in ingredients %}
-                            <li>
-                                {{ ing }}
-                            </li>
-                        {% endfor %}
-                        </ol>
-                </span>
-                <span class="card-title">Instructions:
-                    <ol>
-                        {% for step in steps %}
-                            <li>
-                                {{ step }}
-                            </li>
-                        {% endfor %}
-                    </ol>
-                </span>           
+    <div class="row">
+        <div class="col s10 offset-s1 ">
+            <div class="card-panel">
+                <div class="row">
+                    <!-- all info left side - image right side-->
+                    <div class="col s12 m6">
+                        <span class="card-title">Dish Name:</span><span class="card-info"> {{ recipe.name }}</span><br>
+                        <span class="card-title">Course:</span><span class="card-info"> {{ recipe.category_name }}</span><br>
+                        <span class="card-title">Dietary Info:</span><span class="card-info"> {{ recipe.dietary_info }}</span><br>
+                        <span class="card-title">Time Required:</span><span class="card-info"> {{ recipe.time_required }} Minutes</span><br>
+                        {% if recipe.preheat_oven %}
+                            <span class="card-title">Pre-heat Oven:</span><span class="card-info"> {{ recipe.preheat_oven }} Degrees</span><br>
+                        {% endif %}
+                        <span class="card-title">Ingredients:</span><span class="card-info">
+                            <ol class="ingredients_list">
+                                {% for ing in ingredients %}
+                                    <li>
+                                        {{ ing }}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </span>
+                    </div>
+                    <div class="col s12 m5">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='images/maria-dress.jpg') }}">
+                        </div>
+                    </div>
+                </div>
+                <!-- instructions -->
+                <div class="instructions-area">
+                    <div class="row">
+                        <div class="col s12 center ">
+                            <span class="card-title">Instructions:</span>
+                        </div>
+                        <div class="col s12">
+                            <ol>
+                                {% for step in steps %}
+                                    <li class="card-info">
+                                        {{ step }}
+                                    </li>
+                                {% endfor %}
+                            </ol>        
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endfor %}
 {% endblock %}

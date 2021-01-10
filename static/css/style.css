@@ -30,6 +30,10 @@ body {
     border: black solid 1px;
 }
 
+.card-image img {
+    max-width: 100%;
+}
+
 .admin-heading {
     margin-top: 0;
 }
@@ -40,4 +44,12 @@ body {
 
 .admin-welcome button {
     margin-bottom: 1rem;
+}
+
+.instructions-area{
+    border: dotted black 3px;
+}
+
+.card-info {
+    font-size: larger;
 }
