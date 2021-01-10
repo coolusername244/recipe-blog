@@ -150,6 +150,7 @@ def add_recipe():
             "description": request.form.get("description"),
             "comments": request.form.get("comments"),
             "serves": request.form.get("serves"),
+            "image_url": request.form.get("image_url"),
             "created_by": username
         }
         ingredients = {
@@ -188,6 +189,7 @@ def edit_recipe(recipe_id):
             "dietary_info": request.form.get("dietary_info"),
             "description": request.form.get("description"),
             "comments": request.form.get("comments"),
+            "image_url": request.form.get("image_url"),
             "created_by": session["user"]
         }
         ingredients = {

@@ -152,6 +152,18 @@
                         </button>
                     </div>
                 </div>
+                <!-- image url -->
+                <div class="row">
+                        <div class="input-field col s12 m2 center">
+                            <strong>Image URL:</strong>
+                        </div>
+                        <div class="col s10 offset-s1 m10">
+                            <textarea id="image_url" name="image_url" minlength="5" 
+                                required class="materialize-textarea validate">
+                                {{- recipe.image_url -}}
+                            </textarea>
+                        </div>
+                    </div>
                 <!-- comments -->
                 <div class="row">
                     <div class="input-field col s12 m2 center">
