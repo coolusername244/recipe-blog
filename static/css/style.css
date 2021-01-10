@@ -27,11 +27,12 @@ body {
 }
 
 .card-image {
-    border: black solid 1px;
+
 }
 
 .card-image img {
     max-width: 100%;
+    border: black solid 1px;
 }
 
 .admin-heading {
@@ -52,4 +53,8 @@ body {
 
 .card-info {
     font-size: larger;
+}
+
+.back-button {
+    padding-top: 1rem;
 }

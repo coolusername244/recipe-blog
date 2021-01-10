@@ -14,6 +14,7 @@
                         {% if recipe.preheat_oven %}
                             <span class="card-title">Pre-heat Oven:</span><span class="card-info"> {{ recipe.preheat_oven }} Degrees</span><br>
                         {% endif %}
+                        <span class="card-title">Serves:</span><span class="card-info"> {{ recipe.serves }}</span><br>
                         <span class="card-title">Ingredients:</span><span class="card-info">
                             <ol class="ingredients_list">
                                 {% for ing in ingredients %}
@@ -45,6 +46,13 @@
                                 {% endfor %}
                             </ol>        
                         </div>
+                    </div>
+                </div>
+                <div class="row back-button">
+                    <div class="col s12 center">
+                        <a type="button" id="go_back" class="btn-large pink lighten-4 black-text text-shadow">
+                            Back
+                        </a>
                     </div>
                 </div>
             </div>

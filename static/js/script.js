@@ -47,6 +47,10 @@ $(document).ready(function(){
         // code to make i = +1 of last step
     })
 
+    $(this).on("click", "#go_back", function() {
+        window.history.back();
+    })
+
     $(this).on("click", "#delete_ingredient", function() {
         let deleteInput = $(this).parent().parent();
         deleteInput.remove()
