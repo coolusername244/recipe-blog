@@ -6,6 +6,10 @@ body {
     font-size: large;
 }
 
+.flashes div h4 {
+    padding: 1rem;
+}
+
 .form-border {
     border: solid black 1px;
 }
@@ -24,10 +28,6 @@ body {
 
 .category-header {
     text-decoration: underline;
-}
-
-.card-image {
-
 }
 
 .card-image img {
