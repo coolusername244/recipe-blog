@@ -149,6 +149,7 @@ def add_recipe():
             "dietary_info": request.form.get("dietary_info"),
             "description": request.form.get("description"),
             "comments": request.form.get("comments"),
+            "serves": request.form.get("serves"),
             "created_by": username
         }
         ingredients = {
