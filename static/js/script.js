@@ -11,7 +11,7 @@ $(document).ready(function(){
                             <div class="input-field col s12 m2 center">
                                 <strong class="">Step ${i}:</strong>
                             </div>
-                            <div class="col s9 offset-s1 m9">
+                            <div class="col s7 offset-s1 m9">
                                 <textarea id="step_${i}" name="step[]" minlength="5" required class="materialize-textarea validate"></textarea>
                             </div>
                             <div class="col s1 m1 center">

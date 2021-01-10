@@ -58,3 +58,7 @@ body {
 .back-button {
     padding-top: 1rem;
 }
+
+.form-buttons div button {
+    margin-bottom: 1rem;
+}
