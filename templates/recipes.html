@@ -33,7 +33,7 @@
                                             <div class="col s12 center">
                                                 <span class="card-title">{{ recipe.name }}</span>
                                             </div>
-                                            <div class="col s5 offset-s1">
+                                            <div class="col s10 offset-s1 recipe-image">
                                                 <div class="card-image">
                                                     <img src="{{ recipe.image_url }}">
                                                 </div>
@@ -42,7 +42,7 @@
                                                 <p><i class="fas fa-hourglass-half"></i>:  {{ recipe.time_required }} minutes</p>
                                             </div>
                                             <div class="col s6 center">
-                                                <p>Serves: <br>{{ recipe.serves }}</p>
+                                                <p>Serves: {{ recipe.serves }}</p>
                                             </div>
                                         </div>
                                         <div class="card-content center hide-on-med-only">
