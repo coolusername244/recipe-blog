@@ -5,7 +5,7 @@
         <div class="col s10 offset-s1 ">
             <div class="card-panel">
                 <div class="row">
-                    <!-- all info left side - image right side-->
+                    <!-- all static info about recipe -->
                     <div class="col s12 m6">
                         <span class="card-title">Dish Name:</span><span class="card-info"> {{ recipe.name }}</span><br>
                         <span class="card-title">Course:</span><span class="card-info"> {{ recipe.category_name }}</span><br>
@@ -16,6 +16,7 @@
                         {% endif %}
                         <span class="card-title">Serves:</span><span class="card-info"> {{ recipe.serves }}</span><br>
                         <span class="card-title">Ingredients:</span><span class="card-info">
+                            <!-- ingredients unpacked from MongoDB Array to bullet list here -->
                             <ol class="ingredients_list">
                                 {% for ing in ingredients %}
                                     <li>
@@ -31,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- instructions -->
+                <!-- instructions unpacked from MongoDB Array to numbered list here --> 
                 <div class="instructions-area">
                     <div class="row">
                         <div class="col s12 center ">

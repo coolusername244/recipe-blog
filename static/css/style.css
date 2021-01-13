@@ -6,7 +6,7 @@ body {
     font-size: large;
 }
 
-.flashes div h4 {
+.flash-messages div h4 {
     padding: 1rem;
 }
 

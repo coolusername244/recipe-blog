@@ -28,7 +28,6 @@
         </ul>
     </div>
 </nav>
-
 <!-- Nav bar for Mobile -->
 <ul class="sidenav pink lighten-4" id="mobile-demo">
     <li><a class="black-text" href="{{ url_for('index') }}">Home</a></li>
@@ -41,13 +40,12 @@
         <li><a class="black-text" href="{{ url_for('register') }}">Register</a></li>
     {% endif %}
 </ul>
-
 <section>
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <div class="row flashes">
+                <div class="row flash-messages">
                     <div class="col s6 offset-s3">
                         <h4 class="pink lighten-4 center-align">
                             {{ message }}

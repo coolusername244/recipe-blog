@@ -1,45 +1,148 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Maria's Favourite Recipes! - Milestone Project 3
 
-Welcome coolusername244,
+A site that allows users to add their own recipes to be viewed publicly!
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+To view the live version of the site, please click [here](https://ms3-maria-recipe-site.herokuapp.com/)
 
-## Gitpod Reminders
+---
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## UX Design
 
-`python3 -m http.server`
+### User Stories
 
-A blue button should appear to click: *Make Public*,
+*First Time Users*
 
-Another blue button should appear to click: *Open Browser*.
+- As a first time user, I would like to be able to easily navigate to the recipes.
+  - I have achieved this by having a button on index.html that will take the user to the recipes page. There is also a clear description of where the button will take the user.
+- As a first time user, I would like to easily see whats the story behind the page.
+  - I have achieved this by having a small background story about Maria and her healthy eating journey on index.html.
+- As a first time user, I would like to be told how I can add my own recipes.
+  - I have achieved this by indicating on the index.html that the user is able to add recipes to the page by registering a profile, once the user has registered their profile then they're redirected to my_recipes.html where they will see the 'Add New Recipe' button.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+*Returning Users*
 
-A blue button should appear to click: *Make Public*,
+- As a returning user, I would like to see all of my own recipes seperate from other users.
+  - I have achieved this by creating the 'my_profile.html' page. This page consists of all of the recipes that are created by the session user. 
 
-Another blue button should appear to click: *Open Browser*.
+*Admin Users*
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- As an Admin User, I want total control of all recipes on the page (To edit and delete recipes added by other users).
+  - I have achieved this by creating a profile under 'Maria'. On recipes.html, Maria is able to click a button 'Recipe Editor' and then will be able to edit or delete any recipe within the database. Other users have this functionality but its restricted to their own profile page. 
 
-## Updates Since The Instructional Video
+### Wireframes
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- Home Page
+  - Desktop
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  ![homepage desktop](wireframes/homepage_desktop.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+  - Tablet
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+  ![homepage tablet](wireframes/homepage_tablet.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+  - Tablet - nav
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+  ![homepage tablet-nav](wireframes/homepage_tablet_nav.png)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+  - Mobile
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+  ![homepage mobile](wireframes/homepage_mobile.png)
 
---------
+  - Mobile - nav
 
-Happy coding!
+  ![homepage mobile-nav](wireframes/homepage_mobile_nav.png)
+
+- Recipes
+  - Desktop
+
+  ![recipes desktop](wireframes/recipes_desktop.png)
+  - Tablet
+
+  ![recipes tablet](wireframes/recipes_tablet.png)
+  - Mobile
+
+  ![recipes mobile](wireframes/recipes_mobile.png)
+
+- Login
+  - Desktop
+
+  ![login desktop](wireframes/login_desktop.png)
+  - Tablet 
+  
+  ![login tablet](wireframes/login_tablet.png)
+  - Mobile
+
+  ![login mobile](wireframes/login_mobile.png)
+
+- Register 
+  - Desktop 
+
+  ![register desktop](wireframes/register_desktop.png)
+  - Tablet 
+
+  ![register tablet](wireframes/register_tablet.png)
+  - Mobile 
+
+  ![register mobile](wireframes/register_mobile.png)
+
+- Add Recipe Form 
+
+  ![add recipe form](wireframes/add_recipe_form.png)
+
+---
+
+# Features
+
+- Recipes
+
+  - Unregistered users are able to view all recipes that have been uploaded by registered users. This is achieved by a button on the home page that once clicked, will take them to 'recipes.html'.
+
+  - Recipes are presented in rows of 3 on large devices, rows of 2 on tablets, and rows of 1 on mobile and are displayed to the user with an image, the name of, cooking time, servings info, a short description and a link to the full recipe.
+
+  - Admin Users (Maria), will be able to delete or edit the data of recipes entered by all users, whereas everyone else will only be able to edit or delete their own.
+
+- Register/Login 
+  
+  - A user will need to register a profile to be able to add any recipes, this infomation is on index.html.
+
+  - If a user tries to register a username which is used by someone else already, they will not be allowed to use that username. The user will be notified of this by use of Flash Messages - "Username already exists!".
+
+  - When a user has successfully registered their new profile, they will be redirected to 'my_recipes.html'.
+
+  - When a returning user logs in successfully, they will also be redirected to 'my_recipes.html'.
+
+  - If a user puts their infomation in incorrectly, they will be notified by the use of Flash Messages - "Incorrect Username and/or Password".
+
+- Full Recipes
+
+  - When users are viewing the basic recipe view on recipes.html, they are offered to take a look at the 'Full Recipe'. Once clicked, the users are presented with all of the data related to their chosen recipe, which is kept on MongoDB.
+
+  - Once users are finished with the page, they will be able to go back by clicking the Back button at the foot of the recipe.
+
+- My Recipes 
+
+  - Upon registering/loggin in, the user will be greeted with the profile page(my_recipes.html)
+
+  - Users here will be shown two buttons - 'Recipe Editor' and 'Add New Recipe' (See more details of these below).
+
+  - The 'Add New Recipe' button will redirect the users to the form template that the users will need to fill out to add their recipes. 
+
+  - Once the user has added a recipe, they will see it on their profile page. 
+
+- Add Recipe
+  
+  - When users are adding a new recipe to their profile, they are guided through with notifications of what to do and requirements. 
+
+  - The form will not be able to be submitted with any boxes not filled out by the user as to prevent any errors with the full recipe data, the user will be notified as the required attribute has been added.
+
+- Recipe Editor
+
+  - If users ever decide that they would like to edit any of the data or delete the entire recipe, all they need do is click on the Recipe Editor Button! This button will reveal two buttons underneath all of their inputted recipes. 
+
+  - The green button has a notepad and pen icon, I decided on this image as it clearly is an indicator to some editing functionality.
+
+  - The red button has a cross in circle icon, as above, I have used this icon and color as it is a clear indicator to deleting the recipe.
+
+  - When the user tries to delete a recipe, they will be asked to confirm if that is what they want to do by means of a confirmation message. This is to prevent any user to delete a recipe by mistake. 
+
+# Features Left to Impliment

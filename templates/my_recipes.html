@@ -8,10 +8,12 @@
         </div>
         <div class="col s12 center">
             {% if session.user == 'maria' %}
+                <p>All of your recipes are stored here!</p>
                 <p>Click below to access the editor or add a new recipe!</p>
             {% else %}
+                <p>All of your recipes are stored here!</p>
                 <p>Click below to access the editor or add a new recipe!</p>
-                <p>Note, you can only delete your own recipes</p>
+                <p>Note, you can only delete and edit your own recipes</p>
             {% endif %}
 
             

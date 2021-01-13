@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
     {% if session.user|lower == "maria" %}
-    <div class="container">
-        <div class="row card-panel admin-welcome">
-            <div class="col s12 center">
-                <h4 class="admin-heading">Welcome, {{ session.user|capitalize }}</h4>
-            </div>
-            <div class="col s12 m6 center">
-                <button class="btn pink lighten-4 black-text text-shadow" id="manage">Recipe Editor</button>
-            </div>
-            <div class="col s12 m6 center">
-                <a href="{{ url_for('add_recipe') }}" class="btn pink lighten-4 black-text text-shadow">Add New Recipe</a>
+        <div class="container">
+            <div class="row card-panel admin-welcome">
+                <div class="col s12 center">
+                    <h4 class="admin-heading">Welcome, {{ session.user|capitalize }}</h4>
+                </div>
+                <div class="col s12 m6 center">
+                    <button class="btn pink lighten-4 black-text text-shadow" id="manage">Recipe Editor</button>
+                </div>
+                <div class="col s12 m6 center">
+                    <a href="{{ url_for('add_recipe') }}" class="btn pink lighten-4 black-text text-shadow">Add New Recipe</a>
+                </div>
             </div>
         </div>
-    </div>
     {% endif %}
+    <!-- category heading-->
     {% for category in categories %}
         <div class="row">
             <div class="col s12 center">
@@ -25,6 +26,7 @@
             <div class="col s12">
                 <div class="card-panel">
                     <div class="row">
+                        <!-- recipe thumbnail -->
                         {% for recipe in recipes %}
                             {% if recipe.category_name == category.category_name %}
                                 <div class="col s12 m6 l4">

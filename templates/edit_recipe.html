@@ -1,205 +1,206 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row card-panel pink lighten-5">
-            <form class="col offset-s1 s10 grey lighten-5 form-border form" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
-                <div class="center">
-                    <h4>
-                        Edit your recipe here!
-                    </h4>
-                </div>
-                <!-- category -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong>Dish Category:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled selected>Choose Category</option>
-                            {% for category in categories %}
-                                {% if category.category_name == recipe.category_name %}
-                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                                {% else %}
-                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                <!-- dish name -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Dish Name:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <input id="name" name="name" minlength="5" maxlength="50" 
-                            type="text" class="validate" required
-                            value="{{ recipe.name|capitalize }}">
-                        <label for="name">Enter Dish Name</label>
-                    </div>
-                </div>
-                <!-- time required -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Time Required:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <input id="time_required" name="time_required" minlength="5" maxlength="50" 
-                            type="number" class="validate" required value="{{ recipe.time_required }}">
-                        <label for="time_required">Enter Time Required (Minutes)</label>
-                    </div>
-                </div>
-                <!-- pre-heat oven -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Pre-Heat Oven:<br></strong>(optional)
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
-                            type="number" class="validate" value="{{ recipe.preheat_oven }}">
-                        <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
-                    </div>
-
-                </div>
-                <!-- ingredients -->
-                {% for ing in ingredients %}
-                    <div class="ingredients">
-                        <div class="row">
-                            <div class="input-field col s12 m2 center">
-                                <strong class="">Ingredient:</strong>
-                            </div>
-                            <div class="col s9 offset-s1 m3">
-                                <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required">
-                                    {{- ing|capitalize -}}
-                                </textarea>
-                            </div>
-                            <div class="col s1 m1 center">
-                                {% if loop.index0 %}
-                                    <button type="button" id="delete_ingredient" class="btn pink lighten-4 black-text text-shadow ">
-                                        <i class="far fa-times-circle"></i>
-                                    </button>
-                                {% else %}                                
-                                    <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
-                                        <i class="fas fa-plus-square center"></i>
-                                    </button>
-                                {% endif %}
-                            </div>   
-                        </div>
-                    </div>
-                {% endfor %}
-                <!-- dietary info -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Dietary Information:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <textarea id="dietary_info" name="dietary_info"
-                             class="materialize-textarea validate" required value="{{ recipe.dietary_info }}">
-                            {{- recipe.dietary_info -}}
-                            </textarea>
-                        <label for="dietary_info">Vegan, Lactose Free, Gluten Free...</label>
-                    </div>
-                </div>
-                <!-- description -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Description:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <textarea id="description" name="description" minlength="5" 
-                             class="materialize-textarea validate required" >
-                            {{- recipe.description -}}
-                            </textarea>
-                        <label for="description"><em>"A perfect family dinner"</em></label>
-                    </div>
-                </div>
-                <!-- steps -->
-                <div class="steps" name="steps">
-                    <div class="div col s12 center">
-                        <h5>3 steps are required for submission</h5>
-                    </div>
-                    <!-- step 1 -->
-                    {% for step in steps %}
-                        <div class="row">
-                            <div class="input-field col s12 m2 center">
-                                <strong>Step {{ loop.index }}:</strong>
-                            </div>
-                            {% if loop.index <= 3 %}
-                            <div class="col s10 offset-s1 m10">
-                                <textarea id="step_{{ loop.index }}" name="step[]" minlength="5" class="materialize-textarea validate required">
-                                    {{- step|capitalize-}}
-                                </textarea>
-                            </div>
-                            {% else %}
-                            <div class="col s9 offset-s1 m9">
-                                <textarea id="step_{{ loop.index }}" name="step[]" minlength="5" class="materialize-textarea validate required">
-                                    {{- step|capitalize-}}
-                                </textarea>
-                            </div>
-                            <div class="col s1 m1 center">
-                                    <button type="button" id="delete_step" class="btn pink lighten-4 black-text text-shadow ">
-                                        <i class="far fa-times-circle"></i>
-                                    </button>
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}   
-                </div>          
-                <!-- add step button -->
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="button" id="add_new_step" class="btn pink lighten-4 black-text text-shadow">
-                            Add New Step <i class="fas fa-plus-square right"></i>
-                        </button>
-                    </div>
-                </div>
-                <!-- image url -->
-                <div class="row">
-                        <div class="input-field col s12 m2 center">
-                            <strong>Image URL:</strong>
-                        </div>
-                        <div class="col s10 offset-s1 m10">
-                            <textarea id="image_url" name="image_url" minlength="5" 
-                                required class="materialize-textarea validate">
-                                {{- recipe.image_url -}}
-                            </textarea>
-                        </div>
-                    </div>
-                <!-- comments -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Comments:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <textarea id="comments" name="comments" minlength="5" 
-                            maxlength="500" class="materialize-textarea validate">
-                            {{- recipe.comments -}}
-                        </textarea>
-                        <label for="comments">Comments, Any Extra Steps...</label>
-                    </div>
-                </div>
-                <!-- created by -->
-                <div class="row">
-                    <div class="input-field col s12 m2 center">
-                        <strong class="">Created By:</strong>
-                    </div>
-                    <div class="col s10 offset-s1 m10">
-                        <textarea id="created_by" name="created_by" 
-                            disabled class="materialize-textarea validate">{{ session.user }}</textarea>
-                    </div>
-                </div>
-                <!-- submit/cancel buttons -->
-                <div class="row">
-                    <div class="col s12 m4 offset-m2 center-align">
-                        <button type="submit" class="btn-large green lighten-2 black-text text-shadow">
-                            Add New Recipe! <i class="fas fa-plus-square right"></i>
-                        </button>
-                    </div>
-                    <div class="col s12 m4 center-align">
-                        <a type="button" href="{{ url_for('my_recipes') }}" class="btn-large red lighten-2 black-text text-shadow">
-                            Cancel <i class="fas fa-plus-square right"></i>
-                        </a>
-                    </div>
-                </div>
-            </form>
+    <form class="col offset-s1 s10 grey lighten-5 form-border form" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+        <div class="center">
+            <h4>
+                Edit your recipe here!
+            </h4>
         </div>
+        <!-- category -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong>Dish Category:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <select id="category_name" name="category_name" class="validate" required>
+                <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                        {% if category.category_name == recipe.category_name %}
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <!-- dish name -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Dish Name:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <input id="name" name="name" minlength="5" maxlength="50" 
+                    type="text" class="validate" required
+                    value="{{ recipe.name|capitalize }}">
+                <label for="name">Enter Dish Name</label>
+            </div>
+        </div>
+        <!-- time required -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Time Required:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <input id="time_required" name="time_required" minlength="5" maxlength="50" 
+                    type="number" class="validate" required value="{{ recipe.time_required }}">
+                <label for="time_required">Enter Time Required (Minutes)</label>
+            </div>
+        </div>
+        <!-- pre-heat oven -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Pre-Heat Oven:<br></strong>(optional)
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
+                    type="number" class="validate" value="{{ recipe.preheat_oven }}">
+                <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
+            </div>
+        </div>
+        <!-- ingredients -->
+        {% for ing in ingredients %}
+            <div class="ingredients">
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong class="">Ingredient:</strong>
+                    </div>
+                    <div class="col s9 offset-s1 m3">
+                        <textarea id="ingredients" name="ingredients[]" class="materialize-textarea validate required">
+                            {{- ing|capitalize -}}
+                        </textarea>
+                    </div>
+                    <div class="col s1 m1 center">
+                        {% if loop.index0 %}
+                            <button type="button" id="delete_ingredient" class="btn pink lighten-4 black-text text-shadow ">
+                                <i class="far fa-times-circle"></i>
+                            </button>
+                        {% else %}                                
+                            <button type="button" id="add_new_ingredient" class="btn pink lighten-4 black-text text-shadow ">
+                                <i class="fas fa-plus-square center"></i>
+                            </button>
+                        {% endif %}
+                    </div>   
+                </div>
+            </div>
+        {% endfor %}
+        <!-- dietary info -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Dietary Information:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <textarea id="dietary_info" name="dietary_info"
+                        class="materialize-textarea validate" required value="{{ recipe.dietary_info }}">
+                    {{- recipe.dietary_info -}}
+                    </textarea>
+                <label for="dietary_info">Vegan, Lactose Free, Gluten Free...</label>
+            </div>
+        </div>
+        <!-- description -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Description:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <textarea id="description" name="description" minlength="5" 
+                        class="materialize-textarea validate required" >
+                    {{- recipe.description -}}
+                    </textarea>
+                <label for="description"><em>"A perfect family dinner"</em></label>
+            </div>
+        </div>
+        <!-- steps -->
+        <div class="steps" name="steps">
+            <div class="div col s12 center">
+                <h5>3 steps are required for submission</h5>
+            </div>
+            <!-- step 1 -->
+            {% for step in steps %}
+                <div class="row">
+                    <div class="input-field col s12 m2 center">
+                        <strong>Step:</strong>
+                    </div>
+                    {% if loop.index <= 3 %}
+                        <div class="col s10 offset-s1 m10">
+                            <textarea name="step[]" minlength="5" class="materialize-textarea validate required">
+                                {{- step|capitalize-}}
+                            </textarea>
+                        </div>
+                    {% else %}
+                        <div class="col s9 offset-s1 m9">
+                            <textarea name="step[]" minlength="5" class="materialize-textarea validate required">
+                                {{- step|capitalize-}}
+                            </textarea>
+                        </div>
+                        <div class="col s1 m1 center">
+                            <button type="button" id="delete_step" class="btn pink lighten-4 black-text text-shadow ">
+                                <i class="far fa-times-circle"></i>
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}   
+        </div>          
+        <!-- add step button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="button" id="add_new_step" class="btn pink lighten-4 black-text text-shadow">
+                    Add New Step <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+        <!-- image url -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong>Image URL:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <textarea id="image_url" name="image_url" minlength="5" 
+                    required class="materialize-textarea validate">
+                    {{- recipe.image_url -}}
+                </textarea>
+            </div>
+        </div>
+        <!-- comments -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Comments:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <textarea id="comments" name="comments" minlength="5" 
+                    maxlength="500" class="materialize-textarea validate">
+                    {{- recipe.comments -}}
+                </textarea>
+                <label for="comments">Comments, Any Extra Steps...</label>
+            </div>
+        </div>
+        <!-- created by -->
+        <div class="row">
+            <div class="input-field col s12 m2 center">
+                <strong class="">Created By:</strong>
+            </div>
+            <div class="col s10 offset-s1 m10">
+                <textarea id="created_by" name="created_by" 
+                    disabled class="materialize-textarea validate">
+                    {{ session.user }}
+                </textarea>
+            </div>
+        </div>
+        <!-- submit/cancel buttons -->
+        <div class="row">
+            <div class="col s12 m4 offset-m2 center-align">
+                <button type="submit" class="btn-large green lighten-2 black-text text-shadow">
+                    Add New Recipe! <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+            <div class="col s12 m4 center-align">
+                <a type="button" href="{{ url_for('my_recipes') }}" class="btn-large red lighten-2 black-text text-shadow">
+                    Cancel <i class="fas fa-plus-square right"></i>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}
