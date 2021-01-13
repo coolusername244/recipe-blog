@@ -4,4 +4,5 @@ core.python*
 env.py
 __pycache__/
 *.py[cod]
-readmedraft.md
+*md
+wireframes
