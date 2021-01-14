@@ -1,4 +1,4 @@
-let i = 3
+
 
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "top"});
@@ -6,13 +6,12 @@ $(document).ready(function(){
     $('select').formSelect();
 
     $(this).on("click", "#add_new_step", function() {
-        i++;
         let stepHTML = `<div class="row step">
                             <div class="input-field col s12 m2 center">
-                                <strong class="">Step ${i}:</strong>
+                                <strong class="">Step:</strong>
                             </div>
                             <div class="col s7 offset-s1 m9">
-                                <textarea id="step_${i}" name="step[]" minlength="5" required class="materialize-textarea validate"></textarea>
+                                <textarea name="step[]" minlength="5" required class="materialize-textarea validate"></textarea>
                             </div>
                             <div class="col s1 m1 center">
                                     <button type="button" id="delete_step" class="btn pink lighten-4 black-text text-shadow ">
@@ -41,7 +40,6 @@ $(document).ready(function(){
     })
 
     $(this).on("click", "#delete_step", function() {
-        i--
         let deleteInput = $(this).parent().parent();
         deleteInput.remove()
         // code to make i = +1 of last step
