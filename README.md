@@ -146,3 +146,55 @@ To view the live version of the site, please click [here](https://ms3-maria-reci
   - When the user tries to delete a recipe, they will be asked to confirm if that is what they want to do by means of a confirmation message. This is to prevent any user to delete a recipe by mistake. 
 
 # Features Left to Impliment
+
+1 - The 'Recipe Editor' and 'Add New Recipe' buttons are hidden by sidebar button or muteable someway should the user wish to only see their own recipes.
+
+2 - More in depth registration form asking user for more credentials such as first and last name which could later be used visually.
+
+3 - When adding a new recipe, having a checkbox form for 'Dietary Information' with values such as Vegan, Keto, Gluten Free ect. and 'Other: ...' text area.
+
+--- 
+
+# Technologies Used 
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML)
+  - To give the page its structure and presenting static data.
+  - All HTML files are located within the 'templates' directory.
+
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+  - CSS has been used to style and customise the content of this project.
+
+- [Materialize](https://materializecss.com/)
+  - This is a framework that I have used to simplify CSS classes, features that have been used and modified include the navbar, responsive design classes, and colors for backgrounds and text.
+  
+
+- [JQuery](https://en.wikipedia.org/wiki/JQuery)
+  - JQuery has been used to give the site its functionality as well as making DOM manipulation simpler.
+  - Pages that include functionality are:
+    - recipes.html for Admin users only
+    - my_recipes.html for all users
+    - add_recipe.html for all users
+
+- [MongoDB](https://en.wikipedia.org/wiki/MongoDB) 
+  - As the data entered by users can always be different from one to the next, the project uses MongoDB to store its data as MongoDB is a Document Based Database.
+
+- [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework))
+  - Flask is a framework that allows developers to easily present data in an orderly fashion. All data entered by a user, such as the Recipe Name, is presented to users with a few lines of code embedded into the HTML.
+  - Modules from Flask that have been included are:
+    - Flask
+    - flash
+    - render_template
+    - redirect
+    - request
+    - session
+    - url_for
+    - jsonify
+
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+  - Python is working very closely with Flask to manipulate data and HTML across multiple pages within the app.
+
+- [Heroku](https://en.wikipedia.org/wiki/Heroku)
+  - Heroku has been used to deploy and host the app as it meets the need of being able to handle python.
+
+- [Google Fonts](https://fonts.google.com/specimen/Abel?query=Abel)
+  - The font I have used for this project is called Abel.
