@@ -381,3 +381,4 @@ For this project, I have used and modified content from the Materialize Docs. As
 
 
 #### This project is purely educational, please contact me if there are any issues with Copyright.
+leesheppard2404@gmail.com
