@@ -288,14 +288,96 @@ To view the live version of the site, please click [here](https://ms3-maria-reci
   - Step 5 - Recipe is deleted, user is redirected to my_recipes.
 
 ---
-# Validators
+## Validators
 
-- HTML
+The validators that have been used on the project are as followed:
+ 
+  - [HTML Validator](https://validator.w3.org/nu/) - No issues apart from jinja templating
+  - [CSS Validator](https://jigsaw.w3.org/css-validator/) - No issues
+  - [JavaScript Validator](https://jshint.com/) - No issues 
+  - [Python Validator](http://pep8online.com/) - No issues
 
- - base.html 
-
- ![base html validator]()
 ---
 
-# Deployment
+# Deployment 
 
+For the project to successfully deploy, the following are requirements are needed:
+
+- Python
+- Github account or similar IDE 
+- MongoDB
+- Heroku 
+
+### **Cloning the Project**
+  - Step 1 - log in to your github account and go to the repository.
+  - Step 2 - Click on 'Code'.
+  - Step 3 - Click the link to copy
+  - step 4 - Within the gitpod/IDE type 'GIT CLONE' into the terminal followed by the link and press enter.
+
+### **Heroku Deployment**
+  - Step 1 - Within the terminal, type 'pip freeze > requirements.txt' - this command will generate a .txt file with all of the requirements necessary for Heroku to run the app.
+  - Step 2 - Within the terminal, type 'echo web: python app.py > Procfile' - This tells Heroku that this is a web based app.
+  - Step 3 - Assuming you have an account, log in to Heroku and set up a new app with the region that is closest to you (Europe/America).
+  - Step 4 - You will need to set up your own config vars both on Heroku and within env.py for the app to access the data properly, these will include:
+    - IP 
+    - PORT 
+    - SECRET_KEY
+    - MONGO_URI
+    - MONGO_DBNAME
+  - Step 5 - Select deploy method of choice. I have set up Automatic Deployments by connecting to my github account and enabled automatic deployments from the master branch
+
+  ---
+
+# Credits 
+### Recipes
+
+All recipes currently on the page have all been added my Maria herself
+
+### Recipe Images 
+All images used on the page are linked below:
+- Almond Flour Buns
+  - https://www.bakingmad.com/BakingMad/media/content/Recipes/Bread-Dough/Easy-wholemeal-bread-rolls/1-Wholegrain-bread-rolls-WEB.jpg
+
+- Naan Bread 
+  - https://www.jocooks.com/wp-content/uploads/2011/04/naan-bread-1-500x500.jpg
+
+- Carrot Burgers
+  - https://www.rachaelraymag.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTQzMjU4OTI2NzU1MDMwODk0/carrot-top-burgers.jpg
+
+- Cheesecake
+  - https://www.californiastrawberries.com/wp-content/uploads/2018/07/Strawberry-No-Bake-Cheesecake_1024x1024.png
+
+- Raw Balls
+  - https://www.theflavorbender.com/wp-content/uploads/2014/09/Chia-Bliss-Balls-Featured-4.jpg
+  
+- Cheese Nachos
+  - https://www.wholesomeyum.com/wp-content/uploads/2016/05/wholesomeyum-low-carb-keto-nachos-recipe-with-spicy-chicken-26.jpg
+  
+- Bruschetta 
+  - https://www.jessicagavin.com/wp-content/uploads/2020/07/bruschetta-17-1200.jpg
+  
+- Roasted Cauliflower
+  -  https://minimalistbaker.com/wp-content/uploads/2018/07/How-to-roast-cauliflower-SQUARE.jpg
+
+- Pear Cake
+  - https://marisasitaliankitchen.com/wp-content/uploads/2019/09/Pear-Honey-Rosemary-Bundt-Cake-7-of-10-500x500.jpg
+
+- Cauliflower Pizza
+  - https://realhousemoms.com/wp-content/uploads/Cauliflower-Pizza-Crust-IG1.jpg
+
+### Materialize
+For this project, I have used and modified content from the Materialize Docs. Aspects include:
+  - Navbar 
+  - Color classes 
+  - JQuery Initialization
+  - Card
+
+### Font Awesome 
+- Icons used on this site have been taken from [font awesome](https://fontawesome.com/).
+
+### Google Fonts 
+- The font family used on this site is called Abel and can be seen [here](https://fonts.google.com/?query=abel)
+
+
+
+#### This project is purely educational, please contact me if there are any issues with Copyright.
