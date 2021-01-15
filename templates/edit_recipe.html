@@ -43,7 +43,7 @@
                 <strong class="">Time Required:</strong>
             </div>
             <div class="col s10 offset-s1 m10">
-                <input id="time_required" name="time_required" minlength="5" maxlength="50" 
+                <input id="time_required" name="time_required" 
                     type="number" class="validate" required value="{{ recipe.time_required }}">
                 <label for="time_required">Enter Time Required (Minutes)</label>
             </div>
@@ -54,7 +54,7 @@
                 <strong class="">Pre-Heat Oven:<br></strong>(optional)
             </div>
             <div class="col s10 offset-s1 m10">
-                <input id="preheat_oven" name="preheat_oven" minlength="5" maxlength="50" 
+                <input id="preheat_oven" name="preheat_oven"
                     type="number" class="validate" value="{{ recipe.preheat_oven }}">
                 <label for="preheat_oven">Enter Temperature (Degrees Celcius)</label>
             </div>
@@ -112,7 +112,7 @@
             </div>
         </div>
         <!-- steps -->
-        <div class="steps" name="steps">
+        <div class="steps">
             <div class="div col s12 center">
                 <h5>3 steps are required for submission</h5>
             </div>
