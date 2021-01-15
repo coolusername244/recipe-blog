@@ -14,6 +14,10 @@ body {
     border: solid black 1px;
 }
 
+.form-text {
+    font-size: medium;
+}
+
 .ingredients_list {
     list-style-type: circle;
 }

@@ -198,3 +198,104 @@ To view the live version of the site, please click [here](https://ms3-maria-reci
 
 - [Google Fonts](https://fonts.google.com/specimen/Abel?query=Abel)
   - The font I have used for this project is called Abel.
+
+--- 
+
+# Testing 
+
+## Register.html
+
+- Test 1 - Register - Test Passed ✓ 
+  - Step 1 - From the home page, click the register button - located in the navbar (hidden by Burger Icon for mobile and tablet).
+  - Step 2 - Put in a username which is unique (5 character minimum).
+  - Step 3 - Put in a password (also 5 character minimum).
+  - Step 4 - Click 'Register' button.
+  - Step 5 - Be redirected to 'my_recipes.html'
+
+- Test 2 - Register with a username which already exists - Test Passed ✓ 
+  - Step 1 - While on 'register.html', enter username 'maria'.
+  - Step 2 - Enter password (5 character minimum).
+  - Step 3 - Click the 'Register' button.
+  - Step 4 - Be presented by flash message containing "Username already exists!".
+
+- Test 3 - Register with less than 5 characters - Test Passed ✓
+  - Step 1 - While on 'register.html', enter username '1234'..
+  - Step 2 - Enter password '1234'.
+  - Step 3 - As the 'Required' and minlength=5 has been added, the form will not be submitted.
+  - Step 4 - Change username and password to '12345' and form will submit. (Although matching usernames and passwords are never recommended! haha).
+
+## Login.html
+
+- Test 1 - Log In - Test Passed ✓
+  - Step 1 - Enter your Username.
+  - Step 2 - Enter your Password.
+  - Step 3 - Click the 'log in' buttton.
+  - Step 4 - Be redirected to 'my_recipes.html' with flash message containing "Welcome, [ user ]".
+
+- Test 2 - Log in attempt with incorrect info - Test Passed ✓
+  - Step 1 - Enter credentials that are incorrect.  
+  - Step 2 - Click the 'log in' button.
+  - Step 3 - Be redirected to the log in page with a flash message containing "Incorrect Username and/or Password".
+
+## Adding a New Recipe 
+
+- Test 1 - Adding a New Recipe - Test Passed ✓
+  - Step 1 - Log In.
+  - Step 2 - Be redirected to my_recipes.
+  - Step 3 - Click button labeled 'ADD NEW RECIPE'.
+  - Step 4 - Be redirected to the form for user to fill in.
+  - Step 4.33 - Form is tried to be submitted with empty fields and fails and user is notified of missing items.
+  - Step 4.66 - There are 2 form fields that can be empty and the form still successfully post. They are 'Comments' and 'Pre-Heat Oven'.
+  - Step 5 - Once the form is filled out to the satsfaction of the constraints, the user will click the 'Add New Recipe!' button.
+  - Step 6 - Be redirected to 'my_recipes.html' where the user can see their newly inputted recipe located underneath the dish category heading that the user selected in the form prior.
+  - Step 7 - Check the contents of the newly added recipe right away by clicking the 'Full Recipe" link located within the recipe tile.
+  - Step 8 - Be redirected to 'full_recipe.html' and have all data presented in a user-friendly fashoin.
+
+## Editing/Deleting a Recipe 
+
+- Test 1 - Editing a Recipe - Test Passed ✓
+  - Step 1 - Navigate to my_recipes.
+  - Step 2 - Click the button labeled "RECIPE EDITOR".
+  - Step 3 - Navitgate to the recipe that the user wishes to edit, note - the user can only edit their own recipes.
+  - Step 4 - Click on the green circle button.
+  - Step 5 - Be redirected to edit_recipe.html. This is a copy of the 'add recipe' form with all of the fields already populated, ready for the user to edit.
+  - Step 6 - Should the user wish to cancel the action, they can click on the canel button located on bottom right. 
+    - Step 6.5 - If you click cancel, then you will be redirected to my_recipes and all changes will be disregarded. 
+  - Step 7 - Once the user has made their changes to the recipe, they will click 'UPDATE RECIPE".
+  - Step 8 - Be redirected to my_recipes
+
+- Test 2 - Deleting a Recipe - Test Passed ✓
+  - Step 1 - Navigate to my_recipes.
+  - Step 2 - Click the button labeled "RECIPE EDITOR".
+  - Step 3 - User navigates to recipe which they would like to delete.
+  - Step 4 - User clicks red circle button.
+  - Step 5 - Recipe is deleted, user is redirected to my_recipes.
+
+## Admin Capability
+
+- Test 1 - Edit any Recipe - Test Passed ✓ 
+  - Step 1 - Navigate to recipes.html as admin.
+  - Step 2 - Click the 'RECIPE EDITOR' button.
+  - Step 3 - Edit the recipe as user sees fit.
+  - Step 4 - Click "UPDATE RECIPE".
+  - Step 5 - Be redirected to recipes.html.
+
+- Test 2 - Delete any Recipe - Test Passed ✓
+  - Step 1 - Navigate to my_recipes.
+  - Step 2 - Click the button labeled "RECIPE EDITOR".
+  - Step 3 - User navigates to recipe which they would like to delete.
+  - Step 4 - User clicks red circle button.
+  - Step 5 - Recipe is deleted, user is redirected to my_recipes.
+
+---
+# Validators
+
+- HTML
+
+ - base.html 
+
+ ![base html validator]()
+---
+
+# Deployment
+
