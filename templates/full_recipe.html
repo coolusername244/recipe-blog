@@ -15,16 +15,15 @@
                             <span class="card-title">Pre-heat Oven:</span><span class="card-info"> {{ recipe.preheat_oven }} Degrees</span><br>
                         {% endif %}
                         <span class="card-title">Serves:</span><span class="card-info"> {{ recipe.serves }}</span><br>
-                        <span class="card-title">Ingredients:</span><span class="card-info">
-                            <!-- ingredients unpacked from MongoDB Array to bullet list here -->
-                            <ol class="ingredients_list">
-                                {% for ing in ingredients %}
-                                    <li>
-                                        {{ ing }}
-                                    </li>
-                                {% endfor %}
-                            </ol>
-                        </span>
+                        <span class="card-title">Ingredients:</span>
+                        <!-- ingredients unpacked from MongoDB Array to bullet list here -->
+                        <ol class="ingredients_list card-info">
+                            {% for ing in ingredients %}
+                                <li>
+                                    {{ ing }}
+                                </li>
+                            {% endfor %}
+                        </ol>
                     </div>
                     <div class="col s12 m12 xl5 center full-recipe-image">
                         <div class="card-image">
