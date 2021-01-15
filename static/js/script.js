@@ -16,7 +16,7 @@ $(document).ready(function(){
                                         <i class="far fa-times-circle"></i>
                                     </button>
                                 </div>
-                        </div>`
+                        </div>`;
         $('.steps').append(stepHTML);
     });
 
@@ -35,23 +35,23 @@ $(document).ready(function(){
                                 </div>
                             </div>`;
         $('.ingredients').append(ingredientHTML);
-    })
+    });
 
     $(this).on("click", "#delete_step", function() {
         let deleteInput = $(this).parent().parent();
-        deleteInput.remove()
+        deleteInput.remove();
         // code to make i = +1 of last step
-    })
+    });
 
     $(this).on("click", "#go_back", function() {
         window.history.back();
-    })
+    });
 
     $(this).on("click", "#delete_ingredient", function() {
         let deleteInput = $(this).parent().parent();
-        deleteInput.remove()
-    })
+        deleteInput.remove();
+    });
     $('#manage').on("click", function() {
         $('.hidden').toggle();
-    })
+    });
 });
