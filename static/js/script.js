@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.sidenav').sidenav({edge: "top"});
+    $('.sidenav').sidenav({edge: "right"});
 
     $('select').formSelect();
 
